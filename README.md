@@ -34,7 +34,7 @@ Http status code should be checked for at least following error conditions:
 ```json
 {
   "status": 400,
-  "description": "This username has already be used"
+  "description": "This username has already been used"
 }
 ```
 
