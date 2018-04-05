@@ -6,10 +6,10 @@
   * [POST/auth/signin](#signin)
 * [Users](#users)
   * [POST /api/users](#post-users)
-  * [GET /api/users/](get-users)
-  * [GET /api/users/me](get-users-me)
-  * [GET /api/users/:id](get-users-id)
-  * [PUT /api/users/me](put-users-me)
+  * [GET /api/users/](#get-users)
+  * [GET /api/users/me](#get-users-me)
+  * [GET /api/users/:id](#get-users-id)
+  * [PUT /api/users/me](#put-users-me)
   
 ## Errors handling
 Http status code should be checked for at least following error conditions:
