@@ -76,3 +76,10 @@ Sample response:
 }
 ```
 
+## Users
+### POST /api/users
+### GET /api/users/
+### GET /api/users/:id
+### PUT /api/users/me
+### DELETE /api/users/:id
+ 
