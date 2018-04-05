@@ -5,7 +5,7 @@
 * Authen
   * POST/auth/signin
 * Users
-  * POST /api/users
+  * [POST /api/users](#Authentication)
   * GET /api/users/
   * GET /api/users/:id
   * PUT /api/users/me
