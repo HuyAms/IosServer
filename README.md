@@ -47,8 +47,8 @@ Request body:
 | key |	type | description |
 | --- | --- | --- |
 | username | string | |
-| password | string | Email form |
-| email | string | |
+| password | string | |
+| email | string | Email |
 | phoneNumber | int | Must be 10 digits |
 
 Response payload
