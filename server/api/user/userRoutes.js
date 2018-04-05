@@ -17,6 +17,5 @@ router.route('/')
 
 router.route('/:id')
 .get(controller.getOne)
-.delete(checkUser, controller.delete);
 
 module.exports = router;
