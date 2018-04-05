@@ -2,14 +2,14 @@
 *http://localhost:3000/
 ## API
 ### Official
-* Authen
-  * POST/auth/signin
-* Users
-  * [POST /api/users](#post/api/users)
-  * GET /api/users/
-  * GET /api/users/:id
-  * PUT /api/users/me
-  * DELETE /api/users/:id
+* [Authen](#auth)
+  * [POST/auth/signin](#signin)
+* [Users](#users)
+  * [POST /api/users](#post-users)
+  * [GET /api/users/](get-users)
+  * [GET /api/users/me](get-users-me)
+  * [GET /api/users/:id](get-users-id)
+  * [PUT /api/users/me](put-users-me)
   
 ## Errors handling
 Http status code should be checked for at least following error conditions:
@@ -38,8 +38,8 @@ Http status code should be checked for at least following error conditions:
 }
 ```
 
-## Authentication
-### POST/auth/signin
+## <a name="auth"></a>Authentication
+### <a name="signin"></a>POST/auth/signin
 Sign in user
 
 Request body:
@@ -76,10 +76,11 @@ Sample response:
 }
 ```
 
-## Users
-### POST/api/users
-### GET/api/users/
-### GET/api/users/:id
-### PUT/api/users/me
-### DELETE/api/users/:id
+## <a name="users"></a> Users
+### <a name="post-users"></a> POST/api/users
+### <a name="get-users"></a> GET/api/users/
+### <a name="get-users-me"></a> GET/api/users/me
+### <a name="get-users-id"></a>  GET/api/users/:id
+### <a name="put-user-me"></a> PUT/api/users/me
+
  
