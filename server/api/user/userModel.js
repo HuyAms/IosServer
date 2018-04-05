@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
+const uniqueValidator = require('mongoose-unique-validator');
+
 
 const UserSchema = new Schema({
   username: {
@@ -42,6 +44,8 @@ const UserSchema = new Schema({
   }
 
 });
+
+UserSchema.plugin(uniqueValidator, { message: 'This {PATH} has already be used' });
 
 //middleware that will run before a document is created
 UserSchema.pre('save', function (next) {

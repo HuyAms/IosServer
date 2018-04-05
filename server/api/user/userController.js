@@ -51,7 +51,7 @@ exports.updateMe = (req, res, next) => {
 
   user.save((err, saved) => {
     if (err) {
-      next(error.badRequestError('This username has been used'));
+      next(error.badRequestError(_.find(err.errors).message));
     } else {
       res.json(responseHandler.successResponse(saved.toJson()));
     }
@@ -64,8 +64,7 @@ exports.post = (req, res, next) => {
     const token = signToken(user._id);
     res.json({token: token});
   }, (err) => {
-    console.log(err)
-    next(error.badRequestError('This username has been used'));
+   next(error.badRequestError(_.find(err.errors).message));
   });
 };
 
