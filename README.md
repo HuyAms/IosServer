@@ -252,25 +252,246 @@ Sample response data:
 ## <a name="items"></a> Items
 ### <a name="get-items"></a> Get /api/items
 Get all items which are available
+
+Response payload data
+
+| key |	type | description |
+| --- | --- | --- |
+| status | string | **available** |
+| time | time |  |
+| id | string |  |
+| itemName | string |  |
+| description | string |  |
+| price | int |  |
+| category | string |  |
+| imgPath | string |  |
+| lat | int  |optional |
+| lng | int | optional |
+| seller | user |  |
+
+**seller** in detail
+
+| key |	type | description |
+| --- | --- | --- |
+| id | string | |
+| username | string |  |
+| avatarPath | optional |  |
+
+Sample response data:
+
+```json
+[
+    {
+      "status": "available",
+      "time": "2018-04-06T15:31:26.363Z",
+      "_id": "5ac792ce4038d91b8c78c711",
+      "itemName": "mobile",
+      "description": "testDescription",
+      "price": 1,
+      "category": "devices",
+      "imgPath": "testPath",
+      "seller": {
+        "_id": 5ac792cb4038d91b8c78c70e
+        "username": "test1"
+      }
+    },
+    {
+      "status": "available",
+      "time": "2018-04-06T15:31:26.363Z",
+      "_id": "5ac792ce4038d91b8c78c711",
+      "itemName": "laptop",
+      "description": "testDescription",
+      "price": 1,
+      "category": "devices",
+      "imgPath": "testPath",
+      "seller": {
+        "_id": 5ac792cb4038d91b8c78c70e
+        "username": "test1"
+      }
+    }
+]
+```
+
 ### <a name="post-items"></a> POST /api/items
 Post a new item for sale
+
 Header payload:
+
 | key |	type | description |
 | --- | --- | --- |
 | authorization | string | Server Token  |
 
-Sample header:
+Request body:
+
+| key |	type | description |
+| --- | --- | --- |
+| itemName | string |  |
+| description | string |  |
+| price | int | |
+| category | string | Valid values: **clothing**, **homewares**, **accessories** and **devices** |
+| imgPath | string | |
+| lat | int | otional |
+| lng | int | otional |
+
+Response payload data
+
+| key |	type | description |
+| --- | --- | --- |
+| status | string | **available** |
+| time | time |  |
+| id | string |  |
+| itemName | string |  |
+| description | string |  |
+| price | int |  |
+| category | string | Valid values: **clothing**, **homewares**, **accessories** and **devices** |
+| imgPath | string |  |
+| lat | int  |optional |
+| lng | int | optional |
+| seller | string | sellerId |
+
+Response payload data
+
+| key |	type | description |
+| --- | --- | --- |
+| status | string | **available** |
+| time | time |  |
+| id | string |  |
+| itemName | string |  |
+| description | string |  |
+| price | int |  |
+| category | string |  |
+| imgPath | string |  |
+| lat | int  |optional |
+| lng | int | optional |
+| seller | user |  |
+
+**seller** in detail
+
+| key |	type | description |
+| --- | --- | --- |
+| id | string | |
+| username | string |  |
+| avatarPath | optional |  |
+
+Sample response data:
+
 ```json
-{
-  "authorization":"HERE IS THE TOKEN"
-}
+[
+    {
+      "status": "available",
+      "time": "2018-04-06T15:31:26.363Z",
+      "_id": "5ac792ce4038d91b8c78c711",
+      "itemName": "mobile",
+      "description": "testDescription",
+      "price": 1,
+      "category": "devices",
+      "imgPath": "testPath",
+      "seller": {
+        "_id": 5ac792cb4038d91b8c78c70e
+        "username": "test1"
+      }
+    },
+    {
+      "status": "available",
+      "time": "2018-04-06T15:31:26.363Z",
+      "_id": "5ac792ce4038d91b8c78c711",
+      "itemName": "laptop",
+      "description": "testDescription",
+      "price": 1,
+      "category": "devices",
+      "imgPath": "testPath",
+      "seller": {
+        "_id": 5ac792cb4038d91b8c78c70e
+        "username": "test1"
+      }
+    }
+]
 ```
 
 ### <a name="get-items-filter"></a> GET /api/items/filter
 Get items filtered by category or price
+
+Request params:
+
+| key |	type | description |
+| --- | --- | --- |
+| category | string | Valid values: **clothing**, **homewares**, **accessories** and **devices** - optional |
+| price | int | optional |
+
+Response payload data
+
+| key |	type | description |
+| --- | --- | --- |
+| status | string | **available** |
+| time | time |  |
+| id | string |  |
+| itemName | string |  |
+| description | string |  |
+| price | int |  |
+| category | string |  |
+| imgPath | string |  |
+| lat | int  |optional |
+| lng | int | optional |
+| seller | user |  |
+
+**seller** in detail
+
+| key |	type | description |
+| --- | --- | --- |
+| id | string | |
+| username | string |  |
+| avatarPath | optional |  |
+
+
+Sample request:
+
+```json
+{
+  "category": "devices",
+  "price": 0,
+}
+```
+
+Sample response data:
+
+```json
+[
+    {
+      "status": "available",
+      "time": "2018-04-06T15:31:26.363Z",
+      "_id": "5ac792ce4038d91b8c78c711",
+      "itemName": "mobile",
+      "description": "testDescription",
+      "price": 0,
+      "category": "devices",
+      "imgPath": "testPath",
+      "seller": {
+        "_id": 5ac792cb4038d91b8c78c70e
+        "username": "test1"
+      }
+    },
+    {
+      "status": "available",
+      "time": "2018-04-06T15:31:26.363Z",
+      "_id": "5ac792ce4038d91b8c78c711",
+      "itemName": "laptop",
+      "description": "testDescription",
+      "price": 0,
+      "category": "devices",
+      "imgPath": "testPath",
+      "seller": {
+        "_id": 5ac792cb4038d91b8c78c70e
+        "username": "test1"
+      }
+    }
+]
+```
+
 ### <a name="get-items-me"></a> GET /api/items/me
 Get all my items
+
 Header payload:
+
 | key |	type | description |
 | --- | --- | --- |
 | authorization | string | Server Token  |
