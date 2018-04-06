@@ -50,16 +50,20 @@ exports.updateMe = (req, res, next) => {
 
   const update = req.body;
 
-  _.merge(user, update);
+  if (req.body.point) {
+    next(error.badRequestError("User cannot update point"));
+  } else {
+    _.merge(user, update);
 
-  user.save((err, saved) => {
-    if (err) {
-      next(error.badRequestError(_.find(err.errors).message));
-    } else {
-      delete saved.password
-      res.json(responseHandler.successResponse(saved));
-    }
-  });
+    user.save((err, saved) => {
+      if (err) {
+        next(error.badRequestError(_.find(err.errors).message));
+      } else {
+        delete saved.password
+        res.json(responseHandler.successResponse(saved));
+      }
+    });
+  }
 };
 
 exports.post = (req, res, next) => {
