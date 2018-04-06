@@ -20,7 +20,7 @@ exports.post = (req, res, next) => {
 exports.getMeSellerOrder = (req, res, next) => {
   let userId = req.user._id;
   Order.find({seller: userId}).
-      populate('buyer', '_id username').
+      populate('buyer', '_id username phoneNumber email').
       exec().
       then((items) => {
         res.json(responseHandler.successResponse(items));
@@ -32,7 +32,7 @@ exports.getMeSellerOrder = (req, res, next) => {
 exports.getMeBuyerOrder = (req, res, next) => {
   let userId = req.user._id;
   Order.find({buyer: userId}).
-      populate('seller', '_id username').
+      populate('seller', '_id username phoneNumber email').
       exec().
       then((items) => {
         res.json(responseHandler.successResponse(items));
