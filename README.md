@@ -1,6 +1,9 @@
 ## Hostname
 **Endpoint:** http://localhost:3000/
 ## API
+### Handling
+* [Success request](#success)
+* [Error request](#error)
 ### Official
 * [Authen](#auth)
   * [POST/auth/signin](#signin)
@@ -21,12 +24,13 @@
   * [DELETE /api/items/:id](#delete-items-id)
 * [Orders](#orders)
   * [POST /api/orders](#post-orders)
+  * [Get /api/orders/:id](#get-orders-id)
   * [Get /api/orders/me/buyer](#get-orders-me-buyer)
   * [Get /api/orders/me/seller](#get-orders-me-seller)
 * [Photos](#photos)
   * [POST /api/photos](#post-photos)
   
-## Errors handling
+##<a name="error"></a Errors handling
 Http status code should be checked for at least following error conditions:
 * 400 Bad Request 
 * 401 Unauthorized
@@ -50,6 +54,25 @@ Http status code should be checked for at least following error conditions:
 {
   "status": 400,
   "description": "This username has already been used"
+}
+```
+
+##<a name="sucess"></a Success response
+
+**Success payload:**
+
+| key |	type | description |
+| --- | --- | --- |
+| status | string | HttpStatus |
+| data | data | Response payload data |
+
+**Sample success payload:**
+```json
+{
+  "status": 200,
+  "data": {
+   HERE IS THE RESPONSE PAYLOAD
+  }
 }
 ```
 
@@ -806,7 +829,7 @@ Sample response data:
 ```
 
 ## <a name="orders"></a> Orders
-### <a name="post-orders"></a> Get /api/orders
+### <a name="post-orders"></a> Post /api/orders
 Create an order to buy item
 
 Header payload:
@@ -859,6 +882,64 @@ Sample response payload data:
 }
 ```
 
+### <a name="get-orders-id"></a> Get /api/orders/:id
+
+Response payload data:
+
+| key |	type | description |
+| --- | --- | --- |
+| time | string |  |
+| id | string | itemId |
+| item | item |  |
+| seller | user |  |
+| buyer | user | |
+
+**item** in detail
+
+| key |	type | description |
+| --- | --- | --- |
+| id | string | |
+| itemName | string |  |
+| description | string |  |
+| price | int |  |
+| category | string |  |
+
+**seller, buyer** in detail
+
+| key |	type | description |
+| --- | --- | --- |
+| id | string | |
+| username | string |  |
+| avatarPath | optional |  |
+
+Sample response payload data:
+
+```json
+{
+  "time": "2018-04-06T18:45:40.908Z",
+  "_id": "5ac7c0548ed2e90ac0030158",
+  "item": {
+      "_id": "5ac7c0338ed2e90ac0030156",
+      "itemName": "laptop",
+      "description": "testDescription",
+      "price": 1,
+      "category": "devices"
+   },
+   "seller": {
+      "_id": "5ac7c0308ed2e90ac0030153",
+      "username": "test2",
+      "email": "test2@gmail.com",
+      "phoneNumber": 121111111
+   },
+   "buyer": {
+      "_id": "5ac7c61d055422106862b75c",
+      "username": "test1",
+      "email": "test1@gmail.com",
+      "phoneNumber": 131111111
+   }
+}
+```
+
 ### <a name="get-orders-me-buyer"></a> Get /api/orders/me/buyer
 Get all items bought by me
 
@@ -906,24 +987,26 @@ Sample header:
 Sample response payload data:
 
 ```json
-{
-  "time": "2018-04-06T18:45:40.908Z",
-  "_id": "5ac7c0548ed2e90ac0030158",
-  "item": {
-      "_id": "5ac7c0338ed2e90ac0030156",
-      "itemName": "laptop",
-      "description": "testDescription",
-      "price": 1,
-      "category": "devices"
-   },
-   "seller": {
-      "_id": "5ac7c0308ed2e90ac0030153",
-      "username": "test2",
-      "email": "test2@gmail.com",
-      "phoneNumber": 121111111
-   },
-   "buyer": "5ac7c0308ed2e90ac0030152",
-}
+[
+ {
+   "time": "2018-04-06T18:45:40.908Z",
+   "_id": "5ac7c0548ed2e90ac0030158",
+   "item": {
+       "_id": "5ac7c0338ed2e90ac0030156",
+       "itemName": "laptop",
+       "description": "testDescription",
+       "price": 1,
+       "category": "devices"
+    },
+    "seller": {
+       "_id": "5ac7c0308ed2e90ac0030153",
+       "username": "test2",
+       "email": "test2@gmail.com",
+       "phoneNumber": 121111111
+    },
+    "buyer": "5ac7c0308ed2e90ac0030152",
+ }
+]
 ```
 
 ### <a name="get-orders-me-seller"></a> GET /api/orders/me/seller
@@ -973,24 +1056,26 @@ Sample header:
 Sample response payload data:
 
 ```json
-{
-  "time": "2018-04-06T18:45:40.908Z",
-  "_id": "5ac7c0548ed2e90ac0030158",
-  "item": {
-      "_id": "5ac7c0338ed2e90ac0030156",
-      "itemName": "laptop",
-      "description": "testDescription",
-      "price": 1,
-      "category": "devices"
-   },
-   "buyer": {
-      "_id": "5ac7c0308ed2e90ac0030153",
-      "username": "test2",
-      "email": "test2@gmail.com",
-      "phoneNumber": 121111111
-   },
-   "seller": "5ac7c0308ed2e90ac0030152"
-}
+[
+ {
+   "time": "2018-04-06T18:45:40.908Z",
+   "_id": "5ac7c0548ed2e90ac0030158",
+   "item": {
+       "_id": "5ac7c0338ed2e90ac0030156",
+       "itemName": "laptop",
+       "description": "testDescription",
+       "price": 1,
+       "category": "devices"
+    },
+    "buyer": {
+       "_id": "5ac7c0308ed2e90ac0030153",
+       "username": "test2",
+       "email": "test2@gmail.com",
+       "phoneNumber": 121111111
+    },
+    "seller": "5ac7c0308ed2e90ac0030152"
+ }
+]
 ```
 
 ## <a name="photos"></a> Photos
