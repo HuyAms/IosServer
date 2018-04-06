@@ -98,6 +98,18 @@ Register user
 Get a list of user
 ### <a name="get-users-me"></a> GET /api/users/me
 Get me
+Header payload:
+| key |	type | description |
+| --- | --- | --- |
+| authorization | string | Server Token  |
+
+Sample header:
+```json
+{
+	"authorization":"HERE IS THE TOKEN"
+}
+```
+
 ### <a name="get-users-id"></a>  GET /api/users/:id
 Get user by id
 ### <a name="put-users-me"></a> PUT /api/users/me
@@ -108,29 +120,122 @@ Edit me
 Get all items which are available
 ### <a name="post-items"></a> POST /api/items
 Post a new item for sale
+Header payload:
+| key |	type | description |
+| --- | --- | --- |
+| authorization | string | Server Token  |
+
+Sample header:
+```json
+{
+	"authorization":"HERE IS THE TOKEN"
+}
+```
+
 ### <a name="get-items-filter"></a> GET /api/items/filter
 Get items filtered by category or price
 ### <a name="get-items-me"></a> GET /api/items/me
 Get all my items
+Header payload:
+| key |	type | description |
+| --- | --- | --- |
+| authorization | string | Server Token  |
+
+Sample header:
+```json
+{
+	"authorization":"HERE IS THE TOKEN"
+}
+```
+
 ### <a name="get-items-users-uId"></a> GET /api/items/users/:uId
-Get items based on userId
+Get items of user based on userId
 ### <a name="get-items-id"></a> GET /api/items/:id
 Get one item based on id
 ### <a name="put-items-id"></a> PUT /api/items/:id
 Edit item based on id
+Header payload:
+| key |	type | description |
+| --- | --- | --- |
+| authorization | string | Server Token  |
+
+Sample header:
+```json
+{
+	"authorization":"HERE IS THE TOKEN"
+}
+```
+
 ### <a name="delete-items-id"></a> DELETE /api/items/:id
 Delete item based on id
+Header payload:
+| key |	type | description |
+| --- | --- | --- |
+| authorization | string | Server Token  |
+
+Sample header:
+```json
+{
+	"authorization":"HERE IS THE TOKEN"
+}
+```
 
 ## <a name="orders"></a> Orders
 ### <a name="post-orders"></a> Get /api/orders
 Create an order to buy item
+Header payload:
+| key |	type | description |
+| --- | --- | --- |
+| authorization | string | Server Token  |
+
+Sample header:
+```json
+{
+	"authorization":"HERE IS THE TOKEN"
+}
+```
+
 ### <a name="get-orders-me-buyer"></a> Get /api/orders/me/buyer
 Get all items bought by me
+Header payload:
+| key |	type | description |
+| --- | --- | --- |
+| authorization | string | Server Token  |
+
+Sample header:
+```json
+{
+	"authorization":"HERE IS THE TOKEN"
+}
+```
+
 ### <a name="get-orders-me-seller"></a> GET /api/orders/me/seller
 Get all items sold by me
+Header payload:
+| key |	type | description |
+| --- | --- | --- |
+| authorization | string | Server Token  |
+
+Sample header:
+```json
+{
+	"authorization":"HERE IS THE TOKEN"
+}
+```
 
 ## <a name="photos"></a> Photos
 ### <a name="post-photos"></a> POST /api/photos
 Post a photo to server
+Header payload:
+| key |	type | description |
+| --- | --- | --- |
+| authorization | string | Server Token  |
+
+Sample header:
+```json
+{
+	"authorization":"HERE IS THE TOKEN"
+}
+```
 
 
