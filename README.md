@@ -178,7 +178,9 @@ Sample response data:
 
 ### <a name="get-users-me"></a> GET /api/users/me
 Get me
+
 Header payload:
+
 | key |	type | description |
 | --- | --- | --- |
 | authorization | string | Server Token  |
