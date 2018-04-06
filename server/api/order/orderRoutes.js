@@ -22,4 +22,7 @@ router.route('/me/buyer')
 router.route('/me/seller')
 .get(checkUser, controller.getMeSellerOrder)
 
+router.route('/:id')
+.get(controller.getOneOrder)
+
 module.exports = router;
