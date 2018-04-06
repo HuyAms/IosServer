@@ -1,4 +1,6 @@
 const error = require('../util/error');
+const mongoose = require('mongoose');
+
 
 exports.validateUserParam = (req, res, next) => {
   req.checkBody('username', 'Username should not be empty').notEmpty();
@@ -25,3 +27,19 @@ exports.validateItemParam = (req, res, next) => {
   }
   next();
 };
+
+exports.validateOrderParam = (req, res, next) => {
+  req.checkBody('itemId', 'Item id should not be empty').notEmpty();
+
+  const errors = req.validationErrors();
+  if (errors) {
+    next(error.badRequestError(errors[0].msg));
+  } else {
+    const isValidItemId = mongoose.Types.ObjectId.isValid(req.body.itemId);
+    if (!isValidItemId) {
+      next(error.badRequestError("Invalid item id"));
+    }
+  }
+  next();
+
+}

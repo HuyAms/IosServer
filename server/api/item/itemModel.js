@@ -9,18 +9,18 @@ const ItemSchema = new Schema({
 
   imgPath: {
     type: String,
-    required: true
+    required: true,
   },
 
   description: {
     type: String,
-    required: true
+    required: true,
   },
 
   price: {
     type: Number,
     required: true,
-    min: 0
+    min: 0,
   },
 
   status: {
@@ -32,13 +32,13 @@ const ItemSchema = new Schema({
 
   category: {
     type: String,
-    enum: ['clothing','homewares','accessories', 'devices', 'others'],
-    required: true
+    enum: ['clothing', 'homewares', 'accessories', 'devices', 'others'],
+    required: true,
   },
 
   time: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
 
   lng: Number,
@@ -49,8 +49,8 @@ const ItemSchema = new Schema({
   seller: {
     type: Schema.Types.ObjectId,
     ref: 'user',
-    required: true
-  }
+    required: true,
+  },
 });
 
-module.exports = mongoose.model('item', ItemSchema)
+module.exports = mongoose.model('item', ItemSchema);

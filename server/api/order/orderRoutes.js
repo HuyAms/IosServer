@@ -14,6 +14,6 @@ const processOrder = [
 ];
 
 router.route('/')
-.post(checkUser, processOrder, controller.post);
+.post(checkUser, validator.validateOrderParam, processOrder, controller.post);
 
 module.exports = router;

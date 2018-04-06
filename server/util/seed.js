@@ -10,18 +10,21 @@ const users = [
     'password': 'test1',
     'email': 'test1@gmail.com',
     'phoneNumber': '0111111111',
+    'point':'1'
   },
   {
     'username': 'test2',
     'password': 'test2',
     'email': 'test2@gmail.com',
     'phoneNumber': '0121111111',
+    'point':'1'
   },
   {
     'username': 'test3',
     'password': 'test3',
     'email': 'test3@gmail.com',
     'phoneNumber': '01311111111',
+    'point':'1'
   },
 ];
 

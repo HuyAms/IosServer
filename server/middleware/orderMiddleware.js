@@ -16,7 +16,6 @@ exports.verifyItem = (req, res, next) => {
   });
 };
 
-
 exports.verifyBuyerPurchase = (req, res, next) => {
   const buyerId = req.user._id;
   const sellerId = req.item.seller._id;
@@ -30,16 +29,18 @@ exports.verifyBuyerPurchase = (req, res, next) => {
         // next(error.notFoundError('Cannot find buyer with that id'));
       } else {
         //checkpoint
-        console.log('buyer point: ', buyer.point)
-        console.log('price: ', req.item.price)
-        if (buyer.point < req.price) {
-          //next(error.badRequestError('You do not have enough point to buy this item'));
+        console.log('buyer point: ', buyer.point);
+        console.log('price: ', req.item.price);
+        if (buyer.point < req.item.price) {
+          console.log('not have enought point');
+          next(error.badRequestError(
+              'You do not have enough point to buy this item'));
         } else {
-          //next()
+          next();
         }
       }
     }, (err) => {
-      next(error.notFoundError('Cannot find buyer with that id'));
+      //next(error.notFoundError('Cannot find buyer with that id'));
     });
 
   }
@@ -49,12 +50,11 @@ exports.processSellerDeal = (req, res, next) => {
   const price = req.item.price;
   const sellerId = req.item.seller._id;
 
-  User.findById(sellerId)
-  .then((seller) => {
+  User.findById(sellerId).then((seller) => {
     if (!seller) {
       next(error.notFoundError('Cannot find seller with that id'));
     } else {
-      seller.point += price
+      seller.point += price;
 
       seller.save((err, saved) => {
         if (err) {
@@ -69,19 +69,17 @@ exports.processSellerDeal = (req, res, next) => {
     next(error.notFoundError('Cannot find seller with that id'));
   });
 
-
-}
+};
 
 exports.processBuyerDell = (req, res, next) => {
   const price = req.item.price;
   const buyerId = req.user._id;
 
-  User.findById(buyerId)
-  .then((buyer) => {
+  User.findById(buyerId).then((buyer) => {
     if (!buyer) {
       next(error.notFoundError('Cannot find buyer with that id'));
     } else {
-      buyer.point -= price
+      buyer.point -= price;
 
       buyer.save((err, saved) => {
         if (err) {
@@ -94,7 +92,7 @@ exports.processBuyerDell = (req, res, next) => {
   }, (err) => {
     next(error.notFoundError('Cannot find buyer with that id'));
   });
-}
+};
 
 exports.updateItemStatus = (req, res, next) => {
   const item = req.item;
@@ -104,9 +102,11 @@ exports.updateItemStatus = (req, res, next) => {
     if (err) {
       next(err);
     } else {
-     next();
+      req.item = saved;
+      next();
     }
   });
-}
+
+};
 
 
