@@ -22,23 +22,26 @@ exports.params = (req, res, next, id) => {
 
 exports.get = (req, res, next) => {
   User.find({})
-  .select('-password')
+  .select('-password -email -phoneNumber')
   .exec()
   .then((users) => {
-    res.json(responseHandler.successResponse(users.map((user) => {return user.toJson()})));
+    res.json(responseHandler.successResponse(users.map((user) => { return user})));
   }, (err) => {
     next(error.internalServerError());
   });
 };
 
 exports.getOne = (req, res, next) => {
-  const user = req.user.toJson();
-  res.json(responseHandler.successResponse(user.toJson()));
+  const user = req.user;
+  delete user.password
+  res.json(responseHandler.successResponse(user));
 };
 
 
 exports.me = (req, res, next) => {
-  res.json(req.user.toJson());
+  const me = req.user
+  delete me.password
+  res.json(req.user);
 };
 
 
@@ -53,7 +56,8 @@ exports.updateMe = (req, res, next) => {
     if (err) {
       next(error.badRequestError(_.find(err.errors).message));
     } else {
-      res.json(responseHandler.successResponse(saved.toJson()));
+      delete saved.password
+      res.json(responseHandler.successResponse(saved));
     }
   });
 };
@@ -73,7 +77,8 @@ exports.delete = (req, res, next) => {
     if (err) {
       next(error.internalServerError());
     } else {
-      res.json(responseHandler.successResponse(removed.toJson()));
+      delete removed.password
+      res.json(responseHandler.successResponse(removed));
     }
   });
 };

@@ -4,7 +4,7 @@ const error = require('../../util/error');
 const responseHandler = require('../../util/responseHandler');
 
 exports.params = (req, res, next, id) => {
-  Item.findById(id).populate('seller', '_id username').exec().then((item) => {
+  Item.findById(id).populate('seller', '_id username avatarPath').exec().then((item) => {
     if (!item) {
       next(error.notFoundError('Cannot find item with that id'));
     } else {
@@ -18,7 +18,7 @@ exports.params = (req, res, next, id) => {
 
 exports.get = (req, res, next) => {
   Item.find({status: 'available'}).
-      populate('seller', '_id username').
+      populate('seller', '_id username avatarPath').
       exec().
       then((items) => {
         res.json(responseHandler.successResponse(items));
@@ -39,7 +39,9 @@ exports.getItemFilter = (req, res, next) => {
     filter = _.merge(filter, {price: price});
   }
 
-  Item.find(filter).populate('seller', '_id username').exec().then((items) => {
+  filter = _.merge(filter, {status: "available"});
+
+  Item.find(filter).populate('seller', '_id username avatarPath').exec().then((items) => {
     res.json(responseHandler.successResponse(items));
   }, (err) => {
     next(error.internalServerError());
@@ -64,7 +66,7 @@ exports.getItemMe = (req, res, next) => {
 exports.getItemForUser = (req, res, next) => {
   const uId = req.params.uId;
   Item.find({seller: uId}).
-      populate('seller', '_id username').
+      populate('seller', '_id username avatarPath').
       exec().
       then((items) => {
         res.json(responseHandler.successResponse(items));
@@ -74,8 +76,16 @@ exports.getItemForUser = (req, res, next) => {
 };
 
 exports.put = (req, res, next) => {
+  const userId = req.user._id;
+  const sellerId = req.item.seller._id;
+
+  if (!userId.equals(sellerId)) {
+    next(error.badRequestError("You dont have permission to edit this item"));
+  }
+
   const item = req.item;
   const update = req.body;
+
   _.merge(item, update);
   item.save((err, saved) => {
     if (err) {
@@ -98,6 +108,13 @@ exports.post = (req, res, next) => {
 };
 
 exports.delete = (req, res, next) => {
+  const userId = req.user._id;
+  const sellerId = req.item.seller._id;
+
+  if (!userId.equals(sellerId)) {
+    next(error.badRequestError("You dont have permission to delete this item"));
+  }
+
   req.item.remove((err, removed) => {
     if (err) {
       next(error.internalServerError());

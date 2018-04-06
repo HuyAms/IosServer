@@ -5,7 +5,6 @@ const checkUser = [auth.decodeToken(), auth.getFreshUser()];
 const validator = require('../../middleware/validation');
 
 router.param('id', controller.params);
-router.get('/me', checkUser, controller.me);
 
 router.route('/me')
 .get(checkUser, controller.me)

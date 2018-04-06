@@ -82,13 +82,6 @@ UserSchema.methods = {
       return bcrypt.hashSync(plainTextPword, salt);
     }
   },
-
-  //delete password
-  toJson: function() {
-    const obj = this.toObject()
-    delete obj.password;
-    return obj;
-  }
 };
 
 module.exports = mongoose.model('user', UserSchema);
