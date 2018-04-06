@@ -2,9 +2,6 @@
   "name": "iosserver",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "7.7.3"
-  },
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
