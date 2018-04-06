@@ -30,7 +30,7 @@
 * [Photos](#photos)
   * [POST /api/photos](#post-photos)
   
-##<a name="error"></a Errors handling
+## <a name="error"></a Errors handling
 Http status code should be checked for at least following error conditions:
 * 400 Bad Request 
 * 401 Unauthorized
@@ -57,7 +57,7 @@ Http status code should be checked for at least following error conditions:
 }
 ```
 
-##<a name="sucess"></a Success response
+## <a name="sucess"></a Success response
 
 **Success payload:**
 
