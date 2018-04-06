@@ -63,6 +63,39 @@ Request body:
 | --- | --- | --- |
 | username | string | |
 | password | string | |
+
+Response payload
+
+| key |	type | description |
+| --- | --- | --- |
+| token | string | Server Token |
+
+Sample request:
+
+```json
+{
+  "username": "HuyTrinh",
+  "password": "123456",
+}
+```
+
+Sample response:
+
+```json
+{
+  "token":"HERE IS THE TOKEN"
+}
+```
+
+## <a name="users"></a> Users
+### <a name="post-users"></a> POST /api/users
+
+Request body:
+
+| key |	type | description |
+| --- | --- | --- |
+| username | string | |
+| password | string | |
 | email | string | Email |
 | phoneNumber | int | Must be 10 digits |
 
@@ -79,7 +112,7 @@ Sample request:
   "username": "HuyTrinh",
   "password": "123456",
   "email": "test@gmail.com",
-  "phoneNumber": "0123456789",
+  "phoneNumber": "0123456789"
 }
 ```
 
@@ -91,11 +124,35 @@ Sample response:
 }
 ```
 
-## <a name="users"></a> Users
-### <a name="post-users"></a> POST /api/users
 Register user
 ### <a name="get-users"></a> GET /api/users/
 Get a list of user
+
+Response payload data:
+
+| key |	type | description |
+| --- | --- | --- |
+| point | int |  |
+| id | string |  |
+| username | string |  |
+| avatarPath | string | optional |
+
+Sample response data:
+```json
+[
+    {
+      "point": 1,
+      "_id": "5ac77ca090b6512c8000f4ff"
+      "username": "test1",
+    },
+    {
+      "point": 10,
+      "_id": "5ac77ca090b6512c8000f500"
+      "username": "test2",
+    }
+]
+```
+
 ### <a name="get-users-me"></a> GET /api/users/me
 Get me
 Header payload:
@@ -103,17 +160,94 @@ Header payload:
 | --- | --- | --- |
 | authorization | string | Server Token  |
 
+Response payload data
+
+| key |	type | description |
+| --- | --- | --- |
+| point | int |  |
+| id | string |  |
+| username | string |  |
+| email | string |  |
+| phoneNumber | string |  |
+| avatarPath | string | optional |
+
 Sample header:
 ```json
 {
-	"authorization":"HERE IS THE TOKEN"
+  "authorization":"HERE IS THE TOKEN"
+}
+```
+
+Sample response data:
+
+```json
+{
+  "point": 1,
+  "_id": "5ac77ca090b6512c8000f4ff"
+  "username": "test1",
+  "email": "test1@gmail.com"
+  "phoneNumber": "0123456789"
 }
 ```
 
 ### <a name="get-users-id"></a>  GET /api/users/:id
 Get user by id
+
+Response payload
+
+| key |	type | description |
+| --- | --- | --- |
+| point | int |  |
+| id | string |  |
+| username | string |  |
+| email | string |  |
+| phoneNumber | string |  |
+| avatarPath | string | optional |
+
+Sample response data:
+
+```json
+{
+  "point": 1,
+  "_id": "5ac77ca090b6512c8000f4ff"
+  "username": "test1",
+  "email": "test1@gmail.com"
+  "phoneNumber": "0123456789"
+}
+```
+
 ### <a name="put-users-me"></a> PUT /api/users/me
 Edit me
+
+Request body:
+
+| key |	type | description |
+| --- | --- | --- |
+| username | string | otional |
+| password | string | otional |
+| email | string | Email - otional |
+| phoneNumber | int | Must be 10 digits - otional |
+
+Sample request:
+
+```json
+{
+  "username": "HuyTrinh",
+  "password": "123456",
+  "email": "test@gmail.com",
+  "phoneNumber": "0123456789"
+}
+```
+Sample response data:
+
+```json
+{
+  "username": "HuyTrinh",
+  "password": "123456",
+  "email": "test@gmail.com",
+  "phoneNumber": "0123456789"
+}
+```
 
 ## <a name="items"></a> Items
 ### <a name="get-items"></a> Get /api/items
@@ -128,7 +262,7 @@ Header payload:
 Sample header:
 ```json
 {
-	"authorization":"HERE IS THE TOKEN"
+  "authorization":"HERE IS THE TOKEN"
 }
 ```
 
@@ -144,10 +278,9 @@ Header payload:
 Sample header:
 ```json
 {
-	"authorization":"HERE IS THE TOKEN"
+  "authorization":"HERE IS THE TOKEN"
 }
 ```
-
 ### <a name="get-items-users-uId"></a> GET /api/items/users/:uId
 Get items of user based on userId
 ### <a name="get-items-id"></a> GET /api/items/:id
@@ -162,7 +295,7 @@ Header payload:
 Sample header:
 ```json
 {
-	"authorization":"HERE IS THE TOKEN"
+  "authorization":"HERE IS THE TOKEN"
 }
 ```
 
@@ -176,7 +309,7 @@ Header payload:
 Sample header:
 ```json
 {
-	"authorization":"HERE IS THE TOKEN"
+  "authorization":"HERE IS THE TOKEN"
 }
 ```
 
@@ -191,7 +324,7 @@ Header payload:
 Sample header:
 ```json
 {
-	"authorization":"HERE IS THE TOKEN"
+  "authorization":"HERE IS THE TOKEN"
 }
 ```
 
@@ -205,7 +338,7 @@ Header payload:
 Sample header:
 ```json
 {
-	"authorization":"HERE IS THE TOKEN"
+  "authorization":"HERE IS THE TOKEN"
 }
 ```
 
@@ -219,7 +352,7 @@ Header payload:
 Sample header:
 ```json
 {
-	"authorization":"HERE IS THE TOKEN"
+  "authorization":"HERE IS THE TOKEN"
 }
 ```
 
@@ -234,7 +367,7 @@ Header payload:
 Sample header:
 ```json
 {
-	"authorization":"HERE IS THE TOKEN"
+  "authorization":"HERE IS THE TOKEN"
 }
 ```
 
