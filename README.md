@@ -57,7 +57,7 @@ Http status code should be checked for at least following error conditions:
 }
 ```
 
-## <a name="sucess"></a> Success response
+## <a name="success"></a> Success response
 
 **Success payload:**
 
