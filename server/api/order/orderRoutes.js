@@ -16,4 +16,10 @@ const processOrder = [
 router.route('/')
 .post(checkUser, validator.validateOrderParam, processOrder, controller.post);
 
+router.route('/me/buyer')
+.get(checkUser, controller.getMeBuyerOrder)
+
+router.route('/me/seller')
+.get(checkUser, controller.getMeSellerOrder)
+
 module.exports = router;
