@@ -1115,5 +1115,5 @@ Sample response payload data:
   "filename": "1523041333190-photo.PNG"
 }
 ```
-** Note: ** photoPath: {endpoint}/photos/{filename}
+**Note:** photoPath: {endpoint}/photos/{filename}
 
