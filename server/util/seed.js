@@ -46,7 +46,7 @@ const items = [
   {
     'itemName': 'shirt',
     'description': 'testDescription',
-    'price': '1',
+    'price': '0',
     'category': 'clothing',
     'imgPath': 'testPath',
   },

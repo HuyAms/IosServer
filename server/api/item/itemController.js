@@ -17,27 +17,60 @@ exports.params = (req, res, next, id) => {
 };
 
 exports.get = (req, res, next) => {
-  Item.find({}).populate('seller', '_id username').exec().then((items) => {
-    res.json(responseHandler.successResponse(items));
-  }, (err) => {
-    next(err.internalServerError());
-  });
+  Item.find({status: 'available'}).
+      populate('seller', '_id username').
+      exec().
+      then((items) => {
+        res.json(responseHandler.successResponse(items));
+      }, (err) => {
+        next(error.internalServerError());
+      });
 };
 
 exports.getItemFilter = (req, res, next) => {
+  let filter = {};
   const category = req.query.category;
-  console.log(category)
-  Item.find({category: category}).populate('seller', '_id username').exec().then((items) => {
+  if (category) {
+    filter = _.merge(filter, {category: category});
+  }
+
+  const price = req.query.price;
+  if (price) {
+    filter = _.merge(filter, {price: price});
+  }
+
+  Item.find(filter).populate('seller', '_id username').exec().then((items) => {
     res.json(responseHandler.successResponse(items));
   }, (err) => {
-    next(err.internalServerError());
+    next(error.internalServerError());
   });
 };
-
 
 exports.getOne = (req, res, next) => {
   const item = req.item;
   res.json(responseHandler.successResponse(item));
+};
+
+exports.getItemMe = (req, res, next) => {
+  const uId = req.user._id;
+  Item.find({seller: uId}).then((items) => {
+    res.json(responseHandler.successResponse(items));
+  }, (err) => {
+    console.log(err);
+    next(error.internalServerError());
+  });
+};
+
+exports.getItemForUser = (req, res, next) => {
+  const uId = req.params.uId;
+  Item.find({seller: uId}).
+      populate('seller', '_id username').
+      exec().
+      then((items) => {
+        res.json(responseHandler.successResponse(items));
+      }, (err) => {
+        next(error.internalServerError());
+      });
 };
 
 exports.put = (req, res, next) => {

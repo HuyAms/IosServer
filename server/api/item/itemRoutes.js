@@ -14,6 +14,12 @@ router.route('/')
 router.route('/filter')
 .get(controller.getItemFilter)
 
+router.route('/users/:uId')
+.get(controller.getItemForUser)
+
+router.route('/me')
+.get(checkUser, controller.getItemMe)
+
 router.route('/:id')
 .get(controller.getOne)
 .put(checkUser, validator.validateItemParam, controller.put)
