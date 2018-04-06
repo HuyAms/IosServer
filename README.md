@@ -1,5 +1,5 @@
 ## Hostname
-**Endpoint:** http://localhost:3000/
+**Endpoint:** https://fin-recycler.herokuapp.com
 ## API
 ### Handling
 * [Success request](#success)
