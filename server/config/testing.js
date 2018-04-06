@@ -1,6 +1,6 @@
 module.exports = {
   seed: false,
   db: {
-    url: 'mongodb://localhost/iosproject-test'
+    url:  process.env.MONGOLAB_AQUA_URI
   }
 }
