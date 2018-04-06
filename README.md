@@ -253,6 +253,17 @@ Request body:
 | email | string | Email - otional |
 | phoneNumber | int | Must be 10 digits - otional |
 
+Response payload data:
+
+| key |	type | description |
+| --- | --- | --- |
+| point | int |  |
+| id | string |  |
+| username | string |  |
+| password | string | hash |
+| email | string | |
+| phoneNumber | int | |
+
 Sample request:
 
 ```json
@@ -267,10 +278,12 @@ Sample response data:
 
 ```json
 {
+  "point": 1,
+  "id": "5ac7dfbab9de6a44883184b9",
   "username": "HuyTrinh",
-  "password": "123456",
+  "password": "$2a$10$y58.2lmmfG3jQYAXUToTzuuvVSPaKoyXKQyw7OwcTD/ABVhkGMkMW",
   "email": "test@gmail.com",
-  "phoneNumber": "0123456789"
+  "phoneNumber": 0123456789
 }
 ```
 
