@@ -16,9 +16,15 @@
   * [GET /api/items/filter](#get-items-filter)
   * [GET /api/items/me](#get-items-me)
   * [GET /api/items/users/:uId](#get-items-users-uId)
-  * [GET /api/items/:id](#get-items-filter)
+  * [GET /api/items/:id](#get-items-id)
   * [PUT /api/items/:id](#put-items-id)
   * [DELETE /api/items/:id](#delete-items-id)
+* [Orders](#orders)
+  * [POST /api/orders](#post-orders)
+  * [Get /api/orders/me/buyer](#get-orders-me-buyer)
+  * [Get /api/orders/me/seller](#get-orders-me-seller)
+* [Photos](#photos)
+  * [POST /api/photos](#post-photos)
   
 ## Errors handling
 Http status code should be checked for at least following error conditions:
@@ -87,19 +93,44 @@ Sample response:
 
 ## <a name="users"></a> Users
 ### <a name="post-users"></a> POST /api/users
+Register user
 ### <a name="get-users"></a> GET /api/users/
+Get a list of user
 ### <a name="get-users-me"></a> GET /api/users/me
+Get me
 ### <a name="get-users-id"></a>  GET /api/users/:id
+Get user by id
 ### <a name="put-users-me"></a> PUT /api/users/me
+Edit me
 
 ## <a name="items"></a> Items
 ### <a name="get-items"></a> Get /api/items
+Get all items which are available
 ### <a name="post-items"></a> POST /api/items
+Post a new item for sale
 ### <a name="get-items-filter"></a> GET /api/items/filter
+Get items filtered by category or price
 ### <a name="get-items-me"></a> GET /api/items/me
+Get all my items
 ### <a name="get-items-users-uId"></a> GET /api/items/users/:uId
-### <a name="get-items-filter"></a> GET /api/items/:id
+Get items based on userId
+### <a name="get-items-id"></a> GET /api/items/:id
+Get one item based on id
 ### <a name="put-items-id"></a> PUT /api/items/:id
+Edit item based on id
 ### <a name="delete-items-id"></a> DELETE /api/items/:id
+Delete item based on id
+
+## <a name="orders"></a> Orders
+### <a name="post-orders"></a> Get /api/orders
+Create an order to buy item
+### <a name="get-orders-me-buyer"></a> Get /api/orders/me/buyer
+Get all items bought by me
+### <a name="get-orders-me-seller"></a> GET /api/orders/me/seller
+Get all items sold by me
+
+## <a name="photos"></a> Photos
+### <a name="post-photos"></a> POST /api/photos
+Post a photo to server
 
 
