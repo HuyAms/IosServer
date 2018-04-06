@@ -40,6 +40,7 @@ const UserSchema = new Schema({
   point: {
     type: Number,
     required: true,
+    min: 0,
     default: 0
   }
 
@@ -57,6 +58,16 @@ UserSchema.pre('save', function (next) {
 });
 
 UserSchema.methods = {
+  //add point
+  findAndAddPoint: function(id, point) {
+
+  },
+
+  //substract point
+  findAndRemovePoint: function(id, point) {
+
+  },
+
   //check the passwords on signin
   authenticate: function(plainTextPword) {
     return bcrypt.compareSync(plainTextPword, this.password);

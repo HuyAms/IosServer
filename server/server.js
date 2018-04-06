@@ -10,6 +10,9 @@ const auth = require('./auth/routes');
 //connect to mongoDB
 mongoose.connect(config.db.url).then(() => {
   console.log('Connected successfully');
+  if (config.seed) {
+    require('./util/seed');
+  }
 }).catch((err) => {
   console.log('Cannot connect to database', err);
 });

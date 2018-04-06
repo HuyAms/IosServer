@@ -14,7 +14,6 @@ router.route('/')
 router.route('/filter')
 .get(controller.getItemFilter)
 
-
 router.route('/:id')
 .get(controller.getOne)
 .put(checkUser, validator.validateItemParam, controller.put)

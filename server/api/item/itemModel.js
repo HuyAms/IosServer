@@ -7,6 +7,11 @@ const ItemSchema = new Schema({
     required: true,
   },
 
+  imgPath: {
+    type: String,
+    required: true
+  },
+
   description: {
     type: String,
     required: true
