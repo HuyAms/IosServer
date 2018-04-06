@@ -291,7 +291,7 @@ Sample response data:
       "category": "devices",
       "imgPath": "testPath",
       "seller": {
-        "_id": 5ac792cb4038d91b8c78c70e
+        "_id": "5ac792cb4038d91b8c78c70e"
         "username": "test1"
       }
     },
@@ -305,7 +305,7 @@ Sample response data:
       "category": "devices",
       "imgPath": "testPath",
       "seller": {
-        "_id": 5ac792cb4038d91b8c78c70e
+        "_id": "5ac792cb4038d91b8c78c70e"
         "username": "test1"
       }
     }
@@ -385,7 +385,7 @@ Sample response data:
       "category": "devices",
       "imgPath": "testPath",
       "seller": {
-        "_id": 5ac792cb4038d91b8c78c70e
+        "_id": "5ac792cb4038d91b8c78c70e"
         "username": "test1"
       }
     },
@@ -399,7 +399,7 @@ Sample response data:
       "category": "devices",
       "imgPath": "testPath",
       "seller": {
-        "_id": 5ac792cb4038d91b8c78c70e
+        "_id": "5ac792cb4038d91b8c78c70e"
         "username": "test1"
       }
     }
@@ -464,7 +464,7 @@ Sample response data:
       "category": "devices",
       "imgPath": "testPath",
       "seller": {
-        "_id": 5ac792cb4038d91b8c78c70e
+        "_id": "5ac792cb4038d91b8c78c70e"
         "username": "test1"
       }
     },
@@ -478,7 +478,7 @@ Sample response data:
       "category": "devices",
       "imgPath": "testPath",
       "seller": {
-        "_id": 5ac792cb4038d91b8c78c70e
+        "_id": "5ac792cb4038d91b8c78c70e"
         "username": "test1"
       }
     }
@@ -591,7 +591,7 @@ Sample response data:
       "category": "devices",
       "imgPath": "testPath",
       "seller": {
-        "_id": 5ac792cb4038d91b8c78c70e
+        "_id": "5ac792cb4038d91b8c78c70e"
         "username": "test1"
       }
     },
@@ -605,7 +605,7 @@ Sample response data:
       "category": "devices",
       "imgPath": "testPath",
       "seller": {
-        "_id": 5ac792cb4038d91b8c78c70e
+        "_id": "5ac792cb4038d91b8c78c70e"
         "username": "test1"
       }
     }
@@ -652,7 +652,7 @@ Sample response data:
    "category": "devices",
    "imgPath": "testPath",
    "seller": {
-     "_id": 5ac792cb4038d91b8c78c70e
+     "_id": "5ac792cb4038d91b8c78c70e"
      "username": "test1"
    }
 ```
@@ -742,7 +742,7 @@ Sample response data:
    "category": "devices",
    "imgPath": "testPath",
    "seller": {
-     "_id": 5ac792cb4038d91b8c78c70e
+     "_id": "5ac792cb4038d91b8c78c70e"
      "username": "test1"
    }
 ```
@@ -800,7 +800,7 @@ Sample response data:
    "category": "devices",
    "imgPath": "testPath",
    "seller": {
-     "_id": 5ac792cb4038d91b8c78c70e
+     "_id": "5ac792cb4038d91b8c78c70e"
      "username": "test1"
    }
 ```
