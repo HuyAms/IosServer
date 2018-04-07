@@ -1,0 +1,15 @@
+[
+
+    {
+        "name":"Helsinki",
+        "address":"Capital city",
+        "lat":60.192059,
+        "lng":24.945831
+    },
+    {
+        "name":"Espoo",
+        "address":"Second largest city",
+        "lat":60.2055,
+        "lng":24.6559
+    }
+]
