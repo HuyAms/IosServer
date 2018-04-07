@@ -1,15 +1,93 @@
 [
 
     {
-        "name":"Helsinki",
-        "address":"Capital city",
-        "lat":60.192059,
-        "lng":24.945831
+        "name":"Pääkaupunkiseudun Kierrätyskeskus Oy / Nihtisillan tavaratalo",
+        "address":"Kutojantie 3, 02630 Espoo",
+        "lat":60.210487,
+        "lng":24.754257
+    },
+  	{
+        "name":"Otaniemi Recycling Center",
+        "address":"Servin Maijan tie 6, 02150 Espoo",
+        "lat":60.190542,
+        "lng":24.836159
+    },
+  	{
+        "name":"Pääkaupunkiseudun Kierrätyskeskus Oy / Suomenojan kauppa",
+        "address":"Rusthollarinkatu 1, 02270 Espoo",
+        "lat":60.158112,
+        "lng":24.707533
+    },
+  	{
+        "name":"Pääkaupunkiseudun Kierrätyskeskus Oy / Kyläsaaren kauppa",
+        "address":"Kyläsaarenkatu 8, 00580 Helsinki",
+        "lat":60.198054,
+        "lng":24.972718
+    },
+  	{
+        "name":"Kierrätyskeskus Kontula",
+        "address":"Keinulaudankuja 4, 00940 Helsinki",
+        "lat":60.235955,
+        "lng":25.083694
+    },
+  	{
+        "name":"Pääkaupunkiseudun Kierrätyskeskus Oy / Itäkeskuksen kauppa",
+        "address":"Kauppakartanonkatu 12, 00930 Helsinki",
+        "lat":60.208678,
+        "lng":25.085880
+    },
+  	{
+        "name":"Pääkaupunkiseudun Kierrätyskeskus Oy / Koivukylän kauppa",
+        "address":"Hosantie 2, 01360 Vantaa",
+        "lat":60.317386,
+        "lng":25.061316
+    },
+  	{
+        "name":"Pääkaupunkiseudun Kierrätyskeskus Oy / Porttipuiston kauppa",
+        "address":"Porttisuontie 7, 01200, Vantaa",
+        "lat":60.278834,
+        "lng":25.086280
+    },
+  	{
+        "name":"Fida Espoontori",
+        "address":"Kamreerintie 3, 02770 Espoo",
+        "lat":60.204116,
+        "lng":24.656507	
+    },
+  	{
+        "name":"Fida Myyrmäki",
+        "address":"Ojahaantie 8, 01600 Vantaa",
+        "lat":60.265869,
+        "lng":24.857875
     },
     {
-        "name":"Espoo",
-        "address":"Second largest city",
-        "lat":60.2055,
-        "lng":24.6559
+    	"name":"Fida Leppävaara",
+    	"address":"Harakantie 22, 02650 Espoo",
+    	"lat":60.220988,
+        "lng":24.814942
+    },
+    {
+    	"name":"UFF Columbus",
+    	"address":"Valkopaadentie 1, 00980 Helsinki",
+    	"lat":60.206711,
+        "lng":25.145045
+    },
+    {
+    	"name":"UFF Malmi",
+    	"address":"Ala-Malmin tori 5, 00700 Helsinki",
+    	"lat":60.251196,
+        "lng":25.012587
+    },
+    {
+    	"name":"UFF Sörnäinen",
+    	"address":"Hämeentie 29, 00500 Helsinki",
+    	"lat":60.187432,
+        "lng":24.962029
+    },
+    {
+    	"name":"UFF Hämeentie",
+    	"address":"Hämeentie 4, 00530 Helsinki",
+    	"lat":60.180624,
+        "lng":24.951504
     }
 ]
