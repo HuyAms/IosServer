@@ -35,6 +35,11 @@ const notFoundError = (message = 'Not found', code = 0) => {
   return new APIError(message, httpStatus.NOT_FOUND, code);
 }
 
+/*Code 415*/
+const unsupportedMediaTypeError = (message = 'Invalid photo type', code = 0) => {
+  return new APIError(message, httpStatus.UNSUPPORTED_MEDIA_TYPE, code);
+}
+
 /*Code 500*/
 const internalServerError = (message = 'Unexpected database error', code = 0) => {
   return new APIError(message, httpStatus.INTERNAL_SERVER_ERROR, code);
@@ -46,5 +51,6 @@ module.exports = {
   notFoundError,
   unauthorizedError,
   badRequestError,
-  apiError
+  apiError,
+  unsupportedMediaTypeError
 }
