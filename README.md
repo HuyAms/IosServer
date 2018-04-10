@@ -29,6 +29,8 @@
   * [Get /api/orders/me/seller](#get-orders-me-seller)
 * [Photos](#photos)
   * [POST /api/photos](#post-photos)
+* [Recycling Center](#recycling-center)
+  * [GET /api/centers](#get-recycling-center)
   
 ## <a name="error"></a> Errors handling
 Http status code should be checked for at least following error conditions:
@@ -1129,4 +1131,37 @@ Sample response payload data:
 }
 ```
 **Note:** photoPath: {endpoint}/photos/{filename}
+
+## <a name="recycling-center"></a> Recycling center
+### <a name="get-recycling-center"></a> GET /api/centers
+Get a list of recycling centers in Finland
+
+Response payload data:
+
+| key |	type | description |
+| --- | --- | --- |
+| name | string |  |
+| address | string |  |
+| lat | int |  |
+| lng | int |  |
+
+Sample response payload data:
+
+```json
+[
+ {
+   "name": "Pääkaupunkiseudun Kierrätyskeskus Oy / Nihtisillan tavaratalo",
+   "address": "Kutojantie 3, 02630 Espoo",
+   "lat": 60.210487,
+   "lng": 24.754257   
+ },
+ {
+   "name": "Otaniemi Recycling Center",
+   "address": "Servin Maijan tie 6, 02150 Espoo",
+   "lat": 60.190542,
+   "lng": 24.836159  
+ }
+]
+```
+  
 
