@@ -29,7 +29,7 @@ app.use('/auth/', auth);
 app.use((err, req, res, next) => {
   if (!(err instanceof error.APIError)) {
     console.log(err);
-    const apiError = error.apiError(err.message || err.msg, err.status);
+    const apiError = error.apiError(err.message || err.msg, err.status, err.code);
     console.log(apiError)
     next(apiError);
   }
@@ -40,6 +40,7 @@ app.use((err, req, res, next) => {
   res.status(err.status).json(responseHandler.failureResponse(
       err.status,
       err.message,
+      err.code
   ));
 });
 

@@ -6,13 +6,13 @@ exports.verifyItem = (req, res, next) => {
   const itemId = req.body.itemId;
   Item.findById(itemId).populate('seller').exec().then((item) => {
     if (item.status == 'sold') {
-      next(error.badRequestError('This item has been sold'));
+      next(error.badRequestError('This item has been sold', 11));
     } else {
       req.item = item;
       next();
     }
   }, (err) => {
-    next(error.notFoundError('Cannot find item with that id'));
+    next(error.notFoundError('Cannot find item with that id', 1));
   });
 };
 
@@ -21,12 +21,12 @@ exports.verifyBuyerPurchase = (req, res, next) => {
   const sellerId = req.item.seller._id;
 
   if (buyerId.equals(sellerId)) {
-    next(error.badRequestError('Cannot buy your own item'));
+    next(error.badRequestError('Cannot buy your own item', 12));
   } else {
 
     User.findById(buyerId).select('-password').exec().then((buyer) => {
       if (!buyer) {
-        // next(error.notFoundError('Cannot find buyer with that id'));
+        next(error.notFoundError('Cannot find buyer with that id'));
       } else {
         //checkpoint
         console.log('buyer point: ', buyer.point);
@@ -34,13 +34,13 @@ exports.verifyBuyerPurchase = (req, res, next) => {
         if (buyer.point < req.item.price) {
           console.log('not have enought point');
           next(error.badRequestError(
-              'You do not have enough point to buy this item'));
+              'You do not have enough point to buy this item', 13));
         } else {
           next();
         }
       }
     }, (err) => {
-      //next(error.notFoundError('Cannot find buyer with that id'));
+      next(error.notFoundError('Cannot find buyer with that id'));
     });
 
   }

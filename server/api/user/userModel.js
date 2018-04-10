@@ -46,7 +46,7 @@ const UserSchema = new Schema({
 
 });
 
-UserSchema.plugin(uniqueValidator, { message: 'This {PATH} has already been used' });
+UserSchema.plugin(uniqueValidator, { message: '{PATH}' });
 
 //middleware that will run before a document is created
 UserSchema.pre('save', function (next) {

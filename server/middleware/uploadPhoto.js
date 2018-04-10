@@ -24,7 +24,7 @@ const upload = multer({
     if (mimetype && extname) {
       return next(null, true);
     }
-    next(error.badRequestError());
+    next(error.badRequestError('Invalid photo type'));
   },
   storage: storage,
 });

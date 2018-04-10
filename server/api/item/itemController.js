@@ -6,13 +6,13 @@ const responseHandler = require('../../util/responseHandler');
 exports.params = (req, res, next, id) => {
   Item.findById(id).populate('seller', '_id username avatarPath').exec().then((item) => {
     if (!item) {
-      next(error.notFoundError('Cannot find item with that id'));
+      next(error.notFoundError('Cannot find item with that id', 1));
     } else {
       req.item = item;
       next();
     }
   }, (err) => {
-    next(error.notFoundError('Cannot find item with that id'));
+    next(error.notFoundError('Cannot find item with that id', 1));
   });
 };
 
@@ -80,7 +80,7 @@ exports.put = (req, res, next) => {
   const sellerId = req.item.seller._id;
 
   if (!userId.equals(sellerId)) {
-    next(error.badRequestError("You dont have permission to edit this item"));
+    next(error.badRequestError("You dont have permission to edit this item", 10));
   }
 
   const item = req.item;
@@ -112,7 +112,7 @@ exports.delete = (req, res, next) => {
   const sellerId = req.item.seller._id;
 
   if (!userId.equals(sellerId)) {
-    next(error.badRequestError("You dont have permission to delete this item"));
+    next(error.badRequestError("You dont have permission to delete this item", 10));
   }
 
   req.item.remove((err, removed) => {

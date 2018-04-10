@@ -32,7 +32,7 @@ const ItemSchema = new Schema({
 
   category: {
     type: String,
-    enum: ['clothing', 'homewares', 'accessories', 'devices', 'others'],
+    enum: ['clothing', 'homewares', 'accessories', 'devices', 'others', 'vehicles'],
     required: true,
   },
 

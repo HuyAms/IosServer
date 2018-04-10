@@ -1,42 +1,43 @@
 const httpStatus = require('http-status');
 
 class ExtendableError extends Error {
-  constructor(message, status) {
+  constructor(message, status, code) {
     super(message);
+    this.code = code;
     this.message = message;
     this.status = status;
   }
 }
 
 class APIError extends ExtendableError {
-  constructor(message, status = httpStatus.INTERNAL_SERVER_ERROR) {
-    super(message, status);
+  constructor(message, status = httpStatus.INTERNAL_SERVER_ERROR, code = 0) {
+    super(message, status, code);
   }
 }
 
-const apiError = (message, status) => {
-  return new APIError(message, status);
+const apiError = (message, status, code) => {
+  return new APIError(message, status, code);
 }
 
 /*Code 400*/
-const badRequestError = (message = 'Invalid params') => {
-  return new APIError(message, httpStatus.BAD_REQUEST);
+const badRequestError = (message = 'Invalid params', code = 0) => {
+  return new APIError(message, httpStatus.BAD_REQUEST, code);
 }
 
 /*Code 401*/
-const unauthorizedError = (message = 'Unauthorize') => {
-  return new APIError(message, httpStatus.UNAUTHORIZED);
+const unauthorizedError = (message = 'Unauthorize', code = 0) => {
+  return new APIError(message, httpStatus.UNAUTHORIZED, code);
 }
 
 
 /*Code 404*/
-const notFoundError = (message = 'Not found') => {
-  return new APIError(message, httpStatus.NOT_FOUND);
+const notFoundError = (message = 'Not found', code = 0) => {
+  return new APIError(message, httpStatus.NOT_FOUND, code);
 }
 
 /*Code 500*/
-const internalServerError = (message = 'Unexpected database error') => {
-  return new APIError(message, httpStatus.INTERNAL_SERVER_ERROR);
+const internalServerError = (message = 'Unexpected database error', code = 0) => {
+  return new APIError(message, httpStatus.INTERNAL_SERVER_ERROR, code);
 }
 
 module.exports = {

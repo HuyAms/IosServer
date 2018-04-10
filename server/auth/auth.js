@@ -57,10 +57,10 @@ exports.verifyUser = () => {
     //for the username
     User.findOne({username: username}).then((user) => {
       if (!user) {
-        next(error.badRequestError('Username has not existed'))
+        next(error.badRequestError('Username has not existed', 17))
       } else {
         if (!user.authenticate(password)) {
-          next(error.unauthorizedError('Password is not existed'))
+          next(error.unauthorizedError('Password is not correct', 18))
         } else {
           //if everything is ok
           //attach to req.user

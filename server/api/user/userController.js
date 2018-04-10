@@ -72,7 +72,19 @@ exports.post = (req, res, next) => {
     const token = signToken(user._id);
     res.json({token: token});
   }, (err) => {
-   next(error.badRequestError(_.find(err.errors).message));
+    let path = _.find(err.errors).message;
+    if (path) {
+      switch (path) {
+        case 'username':
+          next(error.badRequestError("This username has already been used", 14));
+        case 'email':
+          next(error.badRequestError("This email has already been used", 15));
+        case 'phoneNumber':
+          next(error.badRequestError("This phone number has already been used", 16));
+      }
+    } else {
+      next(error.internalServerError());
+    }
   });
 };
 

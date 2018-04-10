@@ -5,9 +5,10 @@ const successResponse = (data) => {
   };
 };
 
-const failureResponse = (statusCode, description) => {
+const failureResponse = (statusCode, description, code) => {
   return {
     'status': statusCode,
+    'code': code,
     'description': description
   }
 }
