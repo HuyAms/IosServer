@@ -70,7 +70,7 @@ exports.post = (req, res, next) => {
   const newUser = req.body;
   User.create(newUser).then((user) => {
     const token = signToken(user._id);
-    res.json({token: token});
+    res.json(responseHandler.successResponse({token: token}));
   }, (err) => {
     let path = _.find(err.errors).message;
     if (path) {
