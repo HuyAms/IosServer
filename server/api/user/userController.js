@@ -41,7 +41,7 @@ exports.getOne = (req, res, next) => {
 exports.me = (req, res, next) => {
   const me = req.user
   delete me.password
-  res.json(req.user);
+  res.json(responseHandler.successResponse(req.user));
 };
 
 
