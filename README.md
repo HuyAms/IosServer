@@ -49,12 +49,14 @@ Http status code should be checked for at least following error conditions:
 | key |	type | description |
 | --- | --- | --- |
 | status | string | HttpStatus |
+| code | int | HttpStatus |
 | description | string | Error Description |
 
 **Sample error:**
 ```json
 {
   "status": 400,
+  "code": 14,
   "description": "This username has already been used"
 }
 ```
