@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const NotiSchema = new Schema({
 
   notiType: {
-    type: String,
+    type: Number,
     required: true,
   },
 
