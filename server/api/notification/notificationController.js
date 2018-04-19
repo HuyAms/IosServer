@@ -4,7 +4,7 @@ const error = require('../../util/error');
 const responseHandler = require('../../util/responseHandler');
 
 exports.params = (req, res, next, id) => {
-  Item.findById(id)
+  Notification.findById(id)
   .populate('notiBody', '_id username avatarPath')
   .populate('item', '_id itemName imgPath')
   .exec().then((notification) => {
