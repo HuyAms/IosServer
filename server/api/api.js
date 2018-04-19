@@ -5,5 +5,6 @@ router.use('/items', require('./item/itemRoutes'));
 router.use('/photos', require('./photo/photoRoutes'));
 router.use('/orders', require('./order/orderRoutes'));
 router.use('/centers', require('./center/centerRoutes'));
+router.use('/notifications', require('./notification/notificationRoutes'));
 
 module.exports = router;
