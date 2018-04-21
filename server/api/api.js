@@ -6,5 +6,6 @@ router.use('/photos', require('./photo/photoRoutes'));
 router.use('/orders', require('./order/orderRoutes'));
 router.use('/centers', require('./center/centerRoutes'));
 router.use('/notifications', require('./notification/notificationRoutes'));
+router.use('/payments', require('./payment/paymentRoutes'));
 
 module.exports = router;

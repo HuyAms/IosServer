@@ -13,6 +13,9 @@ const UserSchema = new Schema({
     trim: true
   },
 
+  // Stripe customer ID storing the payment sources.
+  stripeCustomerId: String,
+
   //we should hash password before saving it in Database
   //dont store the password as plain text
   password: {
@@ -58,15 +61,6 @@ UserSchema.pre('save', function (next) {
 });
 
 UserSchema.methods = {
-  //add point
-  findAndAddPoint: function(id, point) {
-
-  },
-
-  //substract point
-  findAndRemovePoint: function(id, point) {
-
-  },
 
   //check the passwords on signin
   authenticate: function(plainTextPword) {

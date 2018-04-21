@@ -7,7 +7,8 @@ const config = {
   port: process.env.PORT || 3000,
   expireTime: 24 * 60 * 60 * 10, //10 days in second
   secrets: {
-    jwt: process.env.JWT || 'awesomeTeam'
+    jwt: process.env.JWT || 'awesomeTeam',
+    stripeSecretKey: process.env.STRIPE || 'sk_test_4JcP3ATI92HBt1PqojLyLhja'
   }
 };
 
