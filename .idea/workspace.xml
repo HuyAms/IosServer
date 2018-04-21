@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="498c342b-cdb2-45b7-85bb-5df08252a3fa" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/server/api/payment/paymentController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/payment/paymentRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/payment/paymentController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/payment/paymentController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/user/userController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/api/user/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/user/userModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,38 +19,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="paymentController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="paymentController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/api/payment/paymentController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="36" column="41" lean-forward="true" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+            <state relative-caret-position="17">
+              <caret line="33" column="2" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="responseHandler.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/util/responseHandler.js">
+      <file leaf-file-name="userController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/api/user/userController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" selection-start-column="6" selection-end-column="21" />
+            <state relative-caret-position="172">
+              <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/config/config.js">
+      <file leaf-file-name="seed.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/util/seed.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userModel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/user/userModel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="16" column="18" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="18" />
+            <state relative-caret-position="136">
+              <caret line="55" column="38" lean-forward="true" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -69,6 +56,7 @@
       <find>posts</find>
       <find>err.internalServerError</find>
       <find>toJson</find>
+      <find>message</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -104,7 +92,6 @@
         <option value="$PROJECT_DIR$/server/auth/controller.js" />
         <option value="$PROJECT_DIR$/server/middleware/uploadPhoto.js" />
         <option value="$PROJECT_DIR$/server/util/error.js" />
-        <option value="$PROJECT_DIR$/server/api/user/userController.js" />
         <option value="$PROJECT_DIR$/server/api/notification/notificationRoutes.js" />
         <option value="$PROJECT_DIR$/server/middleware/orderMiddleware.js" />
         <option value="$PROJECT_DIR$/server/api/item/itemController.js" />
@@ -114,8 +101,9 @@
         <option value="$PROJECT_DIR$/server/api/api.js" />
         <option value="$PROJECT_DIR$/server/config/config.js" />
         <option value="$PROJECT_DIR$/server/api/payment/paymentRoutes.js" />
-        <option value="$PROJECT_DIR$/server/api/user/userModel.js" />
         <option value="$PROJECT_DIR$/server/api/payment/paymentController.js" />
+        <option value="$PROJECT_DIR$/server/api/user/userModel.js" />
+        <option value="$PROJECT_DIR$/server/api/user/userController.js" />
       </list>
     </option>
   </component>
@@ -280,25 +268,25 @@
       <workItem from="1524105094463" duration="37000" />
       <workItem from="1524105202803" duration="7206000" />
       <workItem from="1524115675291" duration="6079000" />
-      <workItem from="1524301419531" duration="6339000" />
+      <workItem from="1524301419531" duration="12536000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93169000" />
+    <option name="totallyTimeSpent" value="99366000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1473893" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26040977" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50185084" side_tool="true" weight="0.6248575" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32905984" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3295325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49814913" visible="true" weight="0.35897437" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49814913" visible="true" weight="0.23646724" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -318,7 +306,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -527,13 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/util/seed.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-462">
-          <caret line="54" selection-start-line="54" selection-end-line="60" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/middleware/orderMiddleware.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -632,20 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/user/userController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="85" column="38" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/user/userModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/config/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -662,8 +629,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/api/payment/paymentController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="36" column="41" lean-forward="true" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+        <state relative-caret-position="17">
+          <caret line="33" column="2" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/user/userModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="50" column="14" lean-forward="true" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/util/seed.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="55" column="38" lean-forward="true" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/user/userController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
         </state>
       </provider>
     </entry>

@@ -4,6 +4,10 @@ const error = require('../../util/error');
 const responseHandler = require('../../util/responseHandler');
 const signToken = require('../../auth/auth').signToken;
 
+const config = require('../../config/config');
+const stripeSecretKey = config.secrets.stripeSecretKey;
+const stripe = require('stripe')(stripeSecretKey);
+
 exports.params = (req, res, next, id) => {
   User.findById(id)
   .select('-password')
@@ -68,10 +72,18 @@ exports.updateMe = (req, res, next) => {
 
 exports.post = (req, res, next) => {
   const newUser = req.body;
-  User.create(newUser).then((user) => {
+  User.create(newUser)
+  .then((user) => {
+    return createKey(user)
+  })
+  .then((user) => {
+    return saveUser(user)
+  })
+  .then((user) => {
     const token = signToken(user._id);
     res.json(responseHandler.successResponse({token: token}));
-  }, (err) => {
+  })
+  .catch(err => {
     let path = _.find(err.errors).message;
     if (path) {
       switch (path) {
@@ -85,8 +97,29 @@ exports.post = (req, res, next) => {
     } else {
       next(error.internalServerError());
     }
-  });
-};
+  })
+}
+
+const saveUser = (user) => {
+  return new Promise((resolve, reject) => {
+    user.save().then((user) => {
+      resolve(user)
+    }).catch(error => reject(error))
+  })
+}
+
+const createKey = (user) => {
+  return new Promise((resolve, reject) => {
+    stripe.customers.create({
+      email: user.email,
+      description: user.username
+    }).then((customer) => {
+      user.stripeCustomerId = customer.id
+      resolve(user)
+    }).catch(error => reject(error))
+  })
+}
+
 
 exports.delete = (req, res, next) => {
   req.user.remove((err, removed) => {

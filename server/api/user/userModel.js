@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 const uniqueValidator = require('mongoose-unique-validator');
 
+const config = require('../../config/config');
+const stripeSecretKey = config.secrets.stripeSecretKey;
+const stripe = require('stripe')(stripeSecretKey);
+
 
 const UserSchema = new Schema({
   username: {

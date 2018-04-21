@@ -40,13 +40,17 @@ exports.createEphemeralKey = (req, res, next) => {
         `Error empty api version`));
     return;
   }
+  console.log("CUSTOMER ID: ", req.user.username)
+
+  console.log("CUSTOMER ID: ", req.user.stripeCustomerId)
 
   stripe.ephemeralKeys.create(
       {customer: req.user.stripeCustomerId},
-      {stripe_version: stripe_version},
+      {stripe_version: stripe_version}
   ).then((key) => {
     res.json(responseHandler.successResponse({ephemeralKey: key}));
   }).catch((err) => {
+    //console.log(err)
     next(error.internalServerError(
         `Error creating ephemeral key for customer: ${err.message}`));
   });
