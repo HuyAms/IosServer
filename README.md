@@ -27,6 +27,9 @@
   * [Get /api/orders/:id](#get-orders-id)
   * [Get /api/orders/me/buyer](#get-orders-me-buyer)
   * [Get /api/orders/me/seller](#get-orders-me-seller)
+* [Notifications](#notifications)
+  * [Get /api/notifications](#get-notifications)
+  * [PUT /api/notifications/:id](#put-notifications-id)
 * [Photos](#photos)
   * [POST /api/photos](#post-photos)
 * [Recycling Center](#recycling-center)
@@ -861,7 +864,7 @@ Request body:
 
 | key |	type | description |
 | --- | --- | --- |
-| itemId | string | optional |
+| itemId | string |  |
 
 Response payload data:
 
@@ -1095,6 +1098,105 @@ Sample response payload data:
     "seller": "5ac7c0308ed2e90ac0030152"
  }
 ]
+```
+  
+## <a name="notifications"></a> Notifications
+### <a name="get-notifications"></a> Get /api/notifications
+Get all my notifications
+
+Header payload:
+
+| key |	type | description |
+| --- | --- | --- |
+| authorization | string | Server Token  |
+
+Response payload data:
+
+| key |	type | description |
+| --- | --- | --- |
+| isRead | boolean |  |
+| time | time |  |
+| id | string | notificationId |
+| notiType | int | **1** me as buyer, **2** me as seller |
+| order | string | orderId |
+| notiBody | user |  |
+| item | item |  |
+
+**user** in detail
+
+| key |	type | description |
+| --- | --- | --- |
+| id | string | |
+| username | string |  |
+| avatarPath | string | optional |
+
+**item** in detail
+
+| key |	type | description |
+| --- | --- | --- |
+| id | string | |
+| itemName | string |  |
+| imgPath | string |  |
+
+Sample header:
+
+```json
+{
+  "authorization":"HERE IS THE TOKEN"
+}
+```
+
+Sample response payload data:
+
+```json
+ {
+    "isRead": true,
+    "time": "2018-04-19T03:56:41.781Z",
+    "_id": "5ad81379c0a4580014079cc7",
+    "notiType": 1,
+    "order": "5ad81379c0a4580014079cc6",
+    "notiBody": {
+        "_id": "5acf52c002a391001435a70b",
+        "username": "huyy"
+    },
+    "item": {
+        "_id": "5ad74c2fe0486d00144e82dd",
+        "itemName": " really long name polo shirt",
+        "imgPath": "https://www.westelm.com/weimgs/ab/images/wcm/products/201747/0003/classic-cafe-dining-chair-o.jpg"
+    }
+ }
+```
+
+
+### <a name="put-notifications-id"></a> PUT /api/notifications/:id
+Update read status notification
+
+Header payload:
+
+| key |	type | description |
+| --- | --- | --- |
+| authorization | string | Server Token  |
+
+Response payload data:
+
+| key |	type | description |
+| --- | --- | --- |
+| status | string |  |
+
+Sample header:
+
+```json
+{
+  "authorization":"HERE IS THE TOKEN"
+}
+```
+
+Sample response payload data:
+
+```json
+{
+  "status": "Successfully update notification"
+}
 ```
 
 ## <a name="photos"></a> Photos
