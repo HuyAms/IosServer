@@ -48,7 +48,7 @@ exports.createEphemeralKey = (req, res, next) => {
       {customer: req.user.stripeCustomerId},
       {stripe_version: stripe_version}
   ).then((key) => {
-    res.json(responseHandler.successResponse({ephemeralKey: key}));
+    res.send(ephemeralKey);
   }).catch((err) => {
     //console.log(err)
     next(error.internalServerError(
