@@ -18,6 +18,10 @@ const VoucherSchema = new Schema({
     min: 0
   },
 
+  discount: {
+    type: String
+  },
+
   imgPath: {
     type: String,
     required: true
