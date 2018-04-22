@@ -9,18 +9,29 @@ const processOrder = [
     orderMiddleware.verifyItem,
     orderMiddleware.verifyBuyerPurchase,
     orderMiddleware.processSellerDeal,
-    orderMiddleware.processBuyerDell,
+    orderMiddleware.processBuyerDeal,
     orderMiddleware.updateItemStatus
 ];
 
-router.route('/')
-.post(checkUser, validator.validateOrderParam, processOrder, controller.post);
+const processVoucherOrder = [
+    orderMiddleware.verifyVoucher,
+    orderMiddleware.processBuyerDeal
+]
+
+router.route('/items/:itemId')
+.post(checkUser, validator.validateOrderParam, processOrder, controller.postItemOrder);
+
+router.route('/vouchers/:voucherId')
+.post(checkUser, validator.validateVoucherOrderParam, processVoucherOrder, controller.postVoucherOrder);
 
 router.route('/me/buyer')
 .get(checkUser, controller.getMeBuyerOrder)
 
 router.route('/me/seller')
 .get(checkUser, controller.getMeSellerOrder)
+
+router.route('/me/vouchers')
+.get(checkUser, controller.getMeVoucherOrder)
 
 router.route('/:id')
 .get(controller.getOneOrder)

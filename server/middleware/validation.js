@@ -59,15 +59,31 @@ exports.validateItemParam = (req, res, next) => {
 };
 
 exports.validateOrderParam = (req, res, next) => {
-  req.checkBody('itemId', 'Item id should not be empty').notEmpty();
+  req.checkParams('itemId', 'Item id should not be empty').notEmpty();
 
   const errors = req.validationErrors();
   if (errors) {
     next(error.badRequestError(errors[0].msg));
   } else {
-    const isValidItemId = mongoose.Types.ObjectId.isValid(req.body.itemId);
+    const isValidItemId = mongoose.Types.ObjectId.isValid(req.params.itemId);
     if (!isValidItemId) {
       next(error.badRequestError('Invalid item id'));
+    }
+  }
+  next();
+
+};
+
+exports.validateVoucherOrderParam = (req, res, next) => {
+  req.checkParams('voucherId', 'Voucher id should not be empty').notEmpty();
+
+  const errors = req.validationErrors();
+  if (errors) {
+    next(error.badRequestError(errors[0].msg));
+  } else {
+    const isValidVoucherId = mongoose.Types.ObjectId.isValid(req.params.voucherId);
+    if (!isValidVoucherId) {
+      next(error.badRequestError('Invalid voucher id'));
     }
   }
   next();

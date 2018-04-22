@@ -1,9 +1,10 @@
 const Item = require('../api/item/itemModel');
+const Voucher = require('../api/voucher/voucherModel');
 const User = require('../api/user/userModel');
 const error = require('../util/error');
 
 exports.verifyItem = (req, res, next) => {
-  const itemId = req.body.itemId;
+  const itemId = req.params.itemId;
   Item.findById(itemId).populate('seller').exec().then((item) => {
     if (item.status == 'sold') {
       next(error.badRequestError('This item has been sold', 11));
@@ -15,6 +16,16 @@ exports.verifyItem = (req, res, next) => {
     next(error.notFoundError('Cannot find item with that id', 1));
   });
 };
+
+exports.verifyVoucher = (req, res, next) => {
+  const voucherId = req.params.voucherId;
+  Voucher.findById(voucherId).then((voucher) => {
+    req.voucher = voucher;
+    next();
+  }).catch((err) => {
+    next(error.notFoundError('Cannot find voucher with that id', 2));
+  });
+}
 
 exports.verifyBuyerPurchase = (req, res, next) => {
   const buyerId = req.user._id;
@@ -28,11 +39,7 @@ exports.verifyBuyerPurchase = (req, res, next) => {
       if (!buyer) {
         next(error.notFoundError('Cannot find buyer with that id'));
       } else {
-        //checkpoint
-        console.log('buyer point: ', buyer.point);
-        console.log('price: ', req.item.price);
         if (buyer.point < req.item.price) {
-          console.log('not have enought point');
           next(error.badRequestError(
               'You do not have enough point to buy this item', 13));
         } else {
@@ -63,7 +70,6 @@ exports.processSellerDeal = (req, res, next) => {
           next();
         }
       });
-
     }
   }, (err) => {
     next(error.notFoundError('Cannot find seller with that id'));
@@ -71,21 +77,26 @@ exports.processSellerDeal = (req, res, next) => {
 
 };
 
-exports.processBuyerDell = (req, res, next) => {
-  const price = req.item.price;
+exports.processBuyerDeal = (req, res, next) => {
+  let price;
+  if (req.item === undefined) {
+    price =  req.voucher.price;
+  } else {
+    price = req.item.price
+  }
   const buyerId = req.user._id;
 
   User.findById(buyerId).then((buyer) => {
     if (!buyer) {
-      next(error.notFoundError('Cannot find buyer with that id'));
+     next(error.notFoundError('Cannot find buyer with that id'));
     } else {
       buyer.point -= price;
 
       buyer.save((err, saved) => {
         if (err) {
-          next(err);
+         next(err);
         } else {
-          next();
+         next();
         }
       });
     }
