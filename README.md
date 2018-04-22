@@ -23,10 +23,12 @@
   * [PUT /api/items/:id](#put-items-id)
   * [DELETE /api/items/:id](#delete-items-id)
 * [Orders](#orders)
-  * [POST /api/orders](#post-orders)
+  * [POST /api/orders/items/:itemId](#post-orders-items-id)
+  * [POST /api/orders/vouchers/:voucherId](#post-orders-vouchers-id)
   * [Get /api/orders/:id](#get-orders-id)
   * [Get /api/orders/me/buyer](#get-orders-me-buyer)
   * [Get /api/orders/me/seller](#get-orders-me-seller)
+  * [GET /api/orders/me/vouchers](#get-orders-me-vouchers)
 * [Notifications](#notifications)
   * [Get /api/notifications](#get-notifications)
   * [PUT /api/notifications/:id](#put-notifications-id)
@@ -34,6 +36,8 @@
   * [POST /api/photos](#post-photos)
 * [Recycling Center](#recycling-center)
   * [GET /api/centers](#get-recycling-center)
+* [Voucher](#voucher)
+  * [GET /api/vouchers](#get-voucher)
   
 ## <a name="error"></a> Errors handling
 Http status code should be checked for at least following error conditions:
@@ -851,7 +855,7 @@ Sample response data:
 ```
 
 ## <a name="orders"></a> Orders
-### <a name="post-orders"></a> Post /api/orders
+### <a name="post-orders-items-id"></a> Post /api/orders/items/:itemId
 Create an order to buy item
 
 Header payload:
@@ -859,12 +863,6 @@ Header payload:
 | key |	type | description |
 | --- | --- | --- |
 | authorization | string | Server Token  |
-
-Request body:
-
-| key |	type | description |
-| --- | --- | --- |
-| itemId | string |  |
 
 Response payload data:
 
@@ -884,11 +882,41 @@ Sample header:
 }
 ```
 
-Sample request body:
+Sample response payload data:
 
 ```json
 {
-  "itemId":"5ac7bdc7f3085a41446ed2f0"
+  "id": "5ac7be29f3085a41446ed2f1",
+  "item": "5ac7bdc7f3085a41446ed2f0",
+  "seller": "5ac7bdc4f3085a41446ed2ed",
+  "buyer": "5ac7bdc4f3085a41446ed2eb",
+  "time": "2018-04-06T18:36:25.101Z",
+}
+```
+
+### <a name="post-orders-vouchers-id"></a> POST /api/orders/vouchers/:voucherId
+Create an order to buy voucher
+
+Header payload:
+
+| key |	type | description |
+| --- | --- | --- |
+| authorization | string | Server Token  |
+
+Response payload data:
+
+| key |	type | description |
+| --- | --- | --- |
+| time | string |  |
+| id | string | orderVoucherId |
+| voucher | string |  |
+| buyer | string |  |
+
+Sample header:
+
+```json
+{
+  "authorization":"HERE IS THE TOKEN"
 }
 ```
 
@@ -897,7 +925,7 @@ Sample response payload data:
 ```json
 {
   "id": "5ac7be29f3085a41446ed2f1",
-  "item": "5ac7bdc7f3085a41446ed2f0",
+  "voucher": "5ac7bdc7f3085a41446ed2f0",
   "seller": "5ac7bdc4f3085a41446ed2ed",
   "buyer": "5ac7bdc4f3085a41446ed2eb",
   "time": "2018-04-06T18:36:25.101Z",
@@ -1099,6 +1127,62 @@ Sample response payload data:
  }
 ]
 ```
+
+ * [GET /api/orders/me/vouchers](#get-orders-me-vouchers)
+ ### <a name="get-orders-me-vouchers"></a> Get /api/orders/me/vouchers
+ GET list of vouchers bought by me
+ 
+ Header payload:
+
+| key |	type | description |
+| --- | --- | --- |
+| authorization | string | Server Token  |
+
+Response payload data:
+
+| key |	type | description |
+| --- | --- | --- |
+| time | time |  |
+| id | string | orderVoucherId |
+| voucher | voucher |  |
+
+ **voucher** in detail
+
+| key |	type | description |
+| --- | --- | --- |
+| id | string | |
+| name | string |  |
+| description | string |  |
+| price | int |  |
+| imgPath | string |  |
+| expiration | time |  |
+
+Sample header:
+
+```json
+{
+  "authorization":"HERE IS THE TOKEN"
+}
+
+Sample response payload data:
+
+```json
+[
+ {
+   "time": "2018-04-06T18:45:40.908Z",
+   "_id": "5ac7c0548ed2e90ac0030158",
+   "voucher": {
+       "_id": "5ac7c0338ed2e90ac0030156",
+       "name": "laptop",
+       "description": "Discount 20%",
+       "price": 1,
+       "imgPath": "Test Path",
+       "expiration": "2018-04-22T07:42:48.061Z",
+    }
+ }
+]
+```
+
   
 ## <a name="notifications"></a> Notifications
 ### <a name="get-notifications"></a> Get /api/notifications
@@ -1267,5 +1351,42 @@ Sample response payload data:
  }
 ]
 ```
+## <a name="voucher"></a> Voucher
+### <a name="get-voucher"></a> GET /api/vouchers
+Get a list of voucher available
+
+Response payload data:
+
+| key |	type | description |
+| --- | --- | --- |
+| id | string |  |
+| name | string |  |
+| description | string |  |
+| price | int |  |
+| imgPath | string |  |
+| expiration | date |  |
+
+
+Sample response payload data:
+
+```json
+[
+ {
+   "id": "5adc6bdd58ff91259874ecaf",
+   "name": "Laptop",
+   "description": "Discount 20%",
+   "imgPath": "Test Path",
+   "expiration":"2018-04-22T07:42:48.061Z"
+ },
+ {
+   "id": "5adc6bdd58ff91259874ecaf",
+   "name": "Food",
+   "description": "Discount 50%",
+   "imgPath": "Test Path",
+   "expiration":"2018-04-22T07:42:48.061Z"
+ }
+]
+```
+
   
 
