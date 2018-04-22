@@ -932,8 +932,6 @@ Sample response payload data:
 }
 ```
 
-### <a name="get-orders-id"></a> Get /api/orders/:id
-
 Response payload data:
 
 | key |	type | description |
@@ -1128,7 +1126,6 @@ Sample response payload data:
 ]
 ```
 
- * [GET /api/orders/me/vouchers](#get-orders-me-vouchers)
  ### <a name="get-orders-me-vouchers"></a> Get /api/orders/me/vouchers
  GET list of vouchers bought by me
  
@@ -1155,6 +1152,7 @@ Response payload data:
 | description | string |  |
 | price | int |  |
 | imgPath | string |  |
+| discount | string | optional |
 | expiration | time |  |
 
 Sample header:
@@ -1177,6 +1175,7 @@ Sample response payload data:
        "description": "Discount 20%",
        "price": 1,
        "imgPath": "Test Path",
+       "discount":"20%",
        "expiration": "2018-04-22T07:42:48.061Z",
     }
  }
@@ -1364,6 +1363,7 @@ Response payload data:
 | description | string |  |
 | price | int |  |
 | imgPath | string |  |
+| discount | string | optional |
 | expiration | date |  |
 
 
@@ -1383,6 +1383,7 @@ Sample response payload data:
    "name": "Food",
    "description": "Discount 50%",
    "imgPath": "Test Path",
+   "discount":"20%",
    "expiration":"2018-04-22T07:42:48.061Z"
  }
 ]
