@@ -30,13 +30,13 @@ exports.verifyVoucher = (req, res, next) => {
 exports.verifyBuyerPurchase = (req, res, next) => {
   const buyer = req.user;
   const buyerId = req.user._id;
-  const sellerId = req.item.seller._id;
 
   let price;
   if (req.item === undefined) {
     price =  req.voucher.price;
   } else {
     price = req.item.price
+    const sellerId = req.item.seller._id;
     if (buyerId.equals(sellerId)) {
       next(error.badRequestError('Cannot buy your own item', 12));
     }
