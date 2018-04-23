@@ -28,30 +28,29 @@ exports.verifyVoucher = (req, res, next) => {
 }
 
 exports.verifyBuyerPurchase = (req, res, next) => {
+  const buyer = req.user;
   const buyerId = req.user._id;
   const sellerId = req.item.seller._id;
 
-  if (buyerId.equals(sellerId)) {
-    next(error.badRequestError('Cannot buy your own item', 12));
+  let price;
+  if (req.item === undefined) {
+    price =  req.voucher.price;
   } else {
-
-    User.findById(buyerId).select('-password').exec().then((buyer) => {
-      if (!buyer) {
-        next(error.notFoundError('Cannot find buyer with that id'));
-      } else {
-        if (buyer.point < req.item.price) {
-          next(error.badRequestError(
-              'You do not have enough point to buy this item', 13));
-        } else {
-          next();
-        }
-      }
-    }, (err) => {
-      next(error.notFoundError('Cannot find buyer with that id'));
-    });
-
+    price = req.item.price
+    if (buyerId.equals(sellerId)) {
+      next(error.badRequestError('Cannot buy your own item', 12));
+    }
   }
+
+  if (buyer.point < price) {
+    next(error.badRequestError(
+        'You do not have enough point to buy this item', 13));
+  } else {
+    next();
+  }
+
 };
+
 
 exports.processSellerDeal = (req, res, next) => {
   const price = req.item.price;
@@ -119,5 +118,3 @@ exports.updateItemStatus = (req, res, next) => {
   });
 
 };
-
-

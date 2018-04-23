@@ -15,6 +15,7 @@ const processOrder = [
 
 const processVoucherOrder = [
     orderMiddleware.verifyVoucher,
+    orderMiddleware.verifyBuyerPurchase,
     orderMiddleware.processBuyerDeal
 ]
 
