@@ -22,6 +22,7 @@ exports.params = (req, res, next, id) => {
 exports.get = (req, res, next) => {
   let userId = req.user._id;
   Notification.find({user: userId})
+  .sort({time: -1})
   .select('-user')
   .populate('notiBody', '_id username avatarPath')
   .populate('item', '_id itemName imgPath')
