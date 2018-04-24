@@ -53,6 +53,10 @@ const responseHandler = require('../../util/responseHandler');
 
   exports.getOneOrder = (req, res, next) => {
     Order.find({_id: req.params.id}).
+        populate('buyer', '_id username phoneNumber email').
+        populate('seller', '_id username phoneNumber email').
+        populate('item', 'itemName description price category').
+        exec().
         then((items) => {
           res.json(responseHandler.successResponse(items));
         }, (err) => {
@@ -63,6 +67,10 @@ const responseHandler = require('../../util/responseHandler');
   exports.getMeSellerOrder = (req, res, next) => {
     let userId = req.user._id;
     Order.find({seller: userId}).
+        populate('buyer', '_id username phoneNumber email').
+        populate('seller', '_id username phoneNumber email').
+        populate('item', 'itemName description price category').
+        exec().
         then((items) => {
           res.json(responseHandler.successResponse(items));
         }, (err) => {
@@ -73,6 +81,10 @@ const responseHandler = require('../../util/responseHandler');
   exports.getMeBuyerOrder = (req, res, next) => {
     let userId = req.user._id;
     Order.find({buyer: userId}).
+        populate('buyer', '_id username phoneNumber email').
+        populate('seller', '_id username phoneNumber email').
+        populate('item', 'itemName description price category').
+        exec().
         then((items) => {
           res.json(responseHandler.successResponse(items));
         }, (err) => {
