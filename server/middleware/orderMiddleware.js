@@ -35,7 +35,7 @@ exports.verifyBuyerPurchase = (req, res, next) => {
   if (req.item === undefined) {
     price =  req.voucher.price;
   } else {
-    price = req.item.price
+    price = req.item.price;
     const sellerId = req.item.seller._id;
     if (buyerId.equals(sellerId)) {
       next(error.badRequestError('Cannot buy your own item', 12));
@@ -81,7 +81,7 @@ exports.processBuyerDeal = (req, res, next) => {
   if (req.item === undefined) {
     price =  req.voucher.price;
   } else {
-    price = req.item.price
+    price = req.item.price;
   }
   const buyerId = req.user._id;
 
