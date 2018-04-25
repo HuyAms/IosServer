@@ -55,7 +55,7 @@ const responseHandler = require('../../util/responseHandler');
     Order.find({_id: req.params.id}).
         populate('buyer', '_id username phoneNumber email').
         populate('seller', '_id username phoneNumber email').
-        populate('item', 'itemName description price category').
+        populate('item', 'itemName description price category status time seller').
         exec().
         then((items) => {
           res.json(responseHandler.successResponse(items));
@@ -69,7 +69,7 @@ const responseHandler = require('../../util/responseHandler');
     Order.find({seller: userId}).
         populate('buyer', '_id username phoneNumber email').
         populate('seller', '_id username phoneNumber email').
-        populate('item', 'itemName description price category').
+        populate('item', 'itemName description price category status time seller').
         exec().
         then((items) => {
           res.json(responseHandler.successResponse(items));
@@ -83,7 +83,7 @@ const responseHandler = require('../../util/responseHandler');
     Order.find({buyer: userId}).
         populate('buyer', '_id username phoneNumber email').
         populate('seller', '_id username phoneNumber email').
-        populate('item', 'itemName description price category').
+        populate('item', 'itemName description price category status time seller').
         exec().
         then((items) => {
           res.json(responseHandler.successResponse(items));
