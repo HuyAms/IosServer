@@ -56,7 +56,7 @@ exports.getOne = (req, res, next) => {
 
 exports.getItemMe = (req, res, next) => {
   const uId = req.user._id;
-  Item.find({seller: uId}).sort({time: -1}).then((items) => {
+  Item.find({seller: uId, status: 'available'}).sort({time: -1}).then((items) => {
     res.json(responseHandler.successResponse(items));
   }, (err) => {
     console.log(err);
