@@ -18,6 +18,7 @@ exports.params = (req, res, next, id) => {
 
 exports.get = (req, res, next) => {
   Item.find({status: 'available'}).
+      sort({time: -1}).
       populate('seller', '_id username avatarPath').
       exec().
       then((items) => {
@@ -41,7 +42,7 @@ exports.getItemFilter = (req, res, next) => {
 
   filter = _.merge(filter, {status: "available"});
 
-  Item.find(filter).populate('seller', '_id username avatarPath').exec().then((items) => {
+  Item.find(filter).sort({time: -1}).populate('seller', '_id username avatarPath').exec().then((items) => {
     res.json(responseHandler.successResponse(items));
   }, (err) => {
     next(error.internalServerError());
@@ -55,7 +56,7 @@ exports.getOne = (req, res, next) => {
 
 exports.getItemMe = (req, res, next) => {
   const uId = req.user._id;
-  Item.find({seller: uId}).then((items) => {
+  Item.find({seller: uId}).sort({time: -1}).then((items) => {
     res.json(responseHandler.successResponse(items));
   }, (err) => {
     console.log(err);
@@ -66,6 +67,7 @@ exports.getItemMe = (req, res, next) => {
 exports.getItemForUser = (req, res, next) => {
   const uId = req.params.uId;
   Item.find({seller: uId}).
+      sort({time: -1}).
       populate('seller', '_id username avatarPath').
       exec().
       then((items) => {

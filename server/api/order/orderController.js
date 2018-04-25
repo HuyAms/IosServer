@@ -67,6 +67,7 @@ const responseHandler = require('../../util/responseHandler');
   exports.getMeSellerOrder = (req, res, next) => {
     let userId = req.user._id;
     Order.find({seller: userId}).
+        sort({time: -1}).
         populate('buyer', '_id username phoneNumber email').
         populate('seller', '_id username phoneNumber email').
         populate('item', 'itemName description price category status time seller').
@@ -80,7 +81,9 @@ const responseHandler = require('../../util/responseHandler');
 
   exports.getMeBuyerOrder = (req, res, next) => {
     let userId = req.user._id;
-    Order.find({buyer: userId}).
+    Order
+    .find({buyer: userId}).
+        sort({time: -1}).
         populate('buyer', '_id username phoneNumber email').
         populate('seller', '_id username phoneNumber email').
         populate('item', 'itemName description price category status time seller').
@@ -95,6 +98,7 @@ const responseHandler = require('../../util/responseHandler');
   exports.getMeVoucherOrder = (req, res, next) => {
     let userId = req.user._id;
     VoucherOrder.find({buyer: userId}).
+        sort({time: -1}).
         select('-buyer').
         populate('voucher').
         exec().
