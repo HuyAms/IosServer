@@ -259,10 +259,10 @@ Request body:
 
 | key |	type | description |
 | --- | --- | --- |
-| username | string | otional |
-| password | string | otional |
-| email | string | Email - otional |
-| phoneNumber | int | Must be 10 digits - otional |
+| username | string |  |
+| password | string |  |
+| email | string | Email |
+| phoneNumber | int | Must be 10 digits |
 
 Response payload data:
 
@@ -1220,6 +1220,12 @@ Response payload data:
 | id | string | |
 | itemName | string |  |
 | imgPath | string |  |
+| description | string |  |
+| price | int |  |
+| category | string |  |
+| status | string |  |
+| time | string |  |
+| seller | string | sellerId |
 
 Sample header:
 
@@ -1246,6 +1252,12 @@ Sample response payload data:
         "_id": "5ad74c2fe0486d00144e82dd",
         "itemName": " really long name polo shirt",
         "imgPath": "https://www.westelm.com/weimgs/ab/images/wcm/products/201747/0003/classic-cafe-dining-chair-o.jpg"
+        "status": "sold",
+        "time": "2018-04-25T11:43:56.048Z",
+        "description": "wow",
+        "price": 10,
+        "category": "devices",
+        "seller": "5adc8d057f619d001427f4e9"
     }
  }
 ```
