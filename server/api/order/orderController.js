@@ -52,7 +52,7 @@ const responseHandler = require('../../util/responseHandler');
   };
 
   exports.getOneOrder = (req, res, next) => {
-    Order.find({_id: req.params.id}).
+    Order.findById(req.params.id).
         populate('buyer', '_id username phoneNumber email').
         populate('seller', '_id username phoneNumber email').
         populate('item', 'itemName description price category status time seller imgPath').
