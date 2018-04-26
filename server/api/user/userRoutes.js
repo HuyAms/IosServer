@@ -8,7 +8,7 @@ router.param('id', controller.params);
 
 router.route('/me')
 .get(checkUser, controller.me)
-.put(checkUser, controller.updateMe)
+.put(checkUser, validator.validateUpdateUserParam, controller.updateMe)
 
 router.route('/')
 .get(controller.get)

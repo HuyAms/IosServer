@@ -25,7 +25,7 @@ exports.get = (req, res, next) => {
   .sort({time: -1})
   .select('-user')
   .populate('notiBody', '_id username avatarPath')
-  .populate('item', '_id itemName imgPath')
+  .populate('item', '_id itemName description price category status time seller imgPath')
   .exec()
   .then((notifications) => {
     res.json(responseHandler.successResponse(notifications));

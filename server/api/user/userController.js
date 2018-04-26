@@ -61,7 +61,19 @@ exports.updateMe = (req, res, next) => {
 
     user.save((err, saved) => {
       if (err) {
-        next(error.badRequestError(_.find(err.errors).message));
+        let path = _.find(err.errors).message;
+        if (path) {
+          switch (path) {
+            case 'username':
+              next(error.badRequestError("This username has already been used", 14));
+            case 'email':
+              next(error.badRequestError("This email has already been used", 15));
+            case 'phoneNumber':
+              next(error.badRequestError("This phone number has already been used", 16));
+          }
+        } else {
+          next(error.internalServerError());
+        }
       } else {
         delete saved.password
         res.json(responseHandler.successResponse(saved));
