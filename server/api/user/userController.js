@@ -93,7 +93,11 @@ exports.post = (req, res, next) => {
   })
   .then((user) => {
     const token = signToken(user._id);
-    res.json(responseHandler.successResponse({token: token}));
+    res.json(responseHandler.successResponse(
+      {
+        token: token,
+        userId: user._id
+      }));
   })
   .catch(err => {
     let path = _.find(err.errors).message;
