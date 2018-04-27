@@ -66,7 +66,7 @@ exports.getItemMe = (req, res, next) => {
 
 exports.getItemForUser = (req, res, next) => {
   const uId = req.params.uId;
-  Item.find({seller: uId}).
+  Item.find({seller: uId, status: 'available'}).
       sort({time: -1}).
       exec().
       then((items) => {
