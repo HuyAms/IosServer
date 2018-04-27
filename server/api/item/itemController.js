@@ -66,9 +66,8 @@ exports.getItemMe = (req, res, next) => {
 
 exports.getItemForUser = (req, res, next) => {
   const uId = req.params.uId;
-  Item.find({seller: uId}).
+  Item.find({seller: uId, status: 'available'}).
       sort({time: -1}).
-      populate('seller', '_id username avatarPath').
       exec().
       then((items) => {
         res.json(responseHandler.successResponse(items));

@@ -56,7 +56,7 @@ Http status code should be checked for at least following error conditions:
 | key |	type | description |
 | --- | --- | --- |
 | status | string | HttpStatus |
-| code | int | HttpStatus |
+| code | int | Server error code |
 | description | string | Error Description |
 
 **Sample error:**
@@ -103,6 +103,7 @@ Response payload
 | key |	type | description |
 | --- | --- | --- |
 | token | string | Server Token |
+| userId | string |  |
 
 Sample request:
 
@@ -117,7 +118,8 @@ Sample response:
 
 ```json
 {
-  "token":"HERE IS THE TOKEN"
+  "token":"HERE IS THE TOKEN",
+  "userId": "HERE IS USERID"
 }
 ```
 
@@ -138,6 +140,7 @@ Response payload
 | key |	type | description |
 | --- | --- | --- |
 | token | string | Server Token |
+| userId | string |  |
 
 Sample request:
 
@@ -154,7 +157,8 @@ Sample response:
 
 ```json
 {
-  "token":"HERE IS THE TOKEN"
+  "token":"HERE IS THE TOKEN",
+  "userId":"HERE IS USERID"
 }
 ```
 
@@ -616,15 +620,7 @@ Response payload data
 | imgPath | string |  |
 | lat | int  |optional |
 | lng | int | optional |
-| seller | user |  |
-
-**seller** in detail
-
-| key |	type | description |
-| --- | --- | --- |
-| id | string | |
-| username | string |  |
-| avatarPath | optional |  |
+| seller | string | sellerId |
 
 Sample response data:
 
@@ -639,10 +635,7 @@ Sample response data:
       "price": 0,
       "category": "devices",
       "imgPath": "testPath",
-      "seller": {
-        "_id": "5ac792cb4038d91b8c78c70e"
-        "username": "test1"
-      }
+      "seller": "5ac792cb4038d91b8c78c70e"
     },
     {
       "status": "sold",
@@ -653,10 +646,7 @@ Sample response data:
       "price": 0,
       "category": "devices",
       "imgPath": "testPath",
-      "seller": {
-        "_id": "5ac792cb4038d91b8c78c70e"
-        "username": "test1"
-      }
+      "seller": "5ac792cb4038d91b8c78c70e"
     }
 ]
 ```
