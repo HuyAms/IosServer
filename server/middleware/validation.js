@@ -26,8 +26,10 @@ exports.validateUserParam = (req, res, next) => {
 };
 
 exports.validateUpdateUserParam = (req, res, next) => {
-  req.checkBody('phoneNumber', 'Invalid phone number').
-      isLength({min: 10, max: 10});
+  if (req.body.phoneNumber) {
+    req.checkBody('phoneNumber', 'Invalid phone number').
+        isLength({min: 10, max: 10});
+  }
 
   const errors = req.validationErrors();
   if (errors) {
