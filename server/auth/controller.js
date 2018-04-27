@@ -10,7 +10,7 @@ exports.signin = (req, res, next) => {
   res.json(responseHandler.successResponse(
     {
       token: token,
-      userId: user._id
+      userId: req.user._id
     }
   ));
 }
