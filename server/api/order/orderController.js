@@ -53,8 +53,8 @@ const responseHandler = require('../../util/responseHandler');
 
   exports.getOneOrder = (req, res, next) => {
     Order.findById(req.params.id).
-        populate('buyer', '_id username phoneNumber email').
-        populate('seller', '_id username phoneNumber email').
+        populate('buyer', '_id username phoneNumber email badge numberOfRecycledItems').
+        populate('seller', '_id username phoneNumber email badge numberOfRecycledItems').
         populate('item', 'itemName description price category status time seller imgPath').
         exec().
         then((items) => {
@@ -68,8 +68,8 @@ const responseHandler = require('../../util/responseHandler');
     let userId = req.user._id;
     Order.find({seller: userId}).
         sort({time: -1}).
-        populate('buyer', '_id username phoneNumber email').
-        populate('seller', '_id username phoneNumber email').
+        populate('buyer', '_id username phoneNumber email badge numberOfRecycledItems').
+        populate('seller', '_id username phoneNumber email badge numberOfRecycledItems').
         populate('item', 'itemName description price category status time seller imgPath').
         exec().
         then((items) => {
@@ -84,8 +84,8 @@ const responseHandler = require('../../util/responseHandler');
     Order
     .find({buyer: userId}).
         sort({time: -1}).
-        populate('buyer', '_id username phoneNumber email').
-        populate('seller', '_id username phoneNumber email').
+        populate('buyer', '_id username phoneNumber email badge numberOfRecycledItems').
+        populate('seller', '_id username phoneNumber email badge numberOfRecycledItems').
         populate('item', 'itemName description price category status time seller imgPath').
         exec().
         then((items) => {

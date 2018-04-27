@@ -19,7 +19,7 @@ exports.params = (req, res, next, id) => {
 exports.get = (req, res, next) => {
   Item.find({status: 'available'}).
       sort({time: -1}).
-      populate('seller', '_id username avatarPath').
+      populate('seller', '_id username avatarPath badge numberOfRecycledItems').
       exec().
       then((items) => {
         res.json(responseHandler.successResponse(items));
@@ -42,7 +42,7 @@ exports.getItemFilter = (req, res, next) => {
 
   filter = _.merge(filter, {status: "available"});
 
-  Item.find(filter).sort({time: -1}).populate('seller', '_id username avatarPath').exec().then((items) => {
+  Item.find(filter).sort({time: -1}).populate('seller', '_id username avatarPath badge numberOfRecycledItems').exec().then((items) => {
     res.json(responseHandler.successResponse(items));
   }, (err) => {
     next(error.internalServerError());
