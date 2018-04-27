@@ -8,7 +8,9 @@ exports.signin = (req, res, next) => {
   // and send it back for the client to consume
   const token = signToken(req.user._id);
   res.json(responseHandler.successResponse(
-    token: token,
-    userId: user._id
+    {
+      token: token,
+      userId: user._id
+    }
   ));
 }
