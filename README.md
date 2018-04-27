@@ -616,15 +616,7 @@ Response payload data
 | imgPath | string |  |
 | lat | int  |optional |
 | lng | int | optional |
-| seller | user |  |
-
-**seller** in detail
-
-| key |	type | description |
-| --- | --- | --- |
-| id | string | |
-| username | string |  |
-| avatarPath | optional |  |
+| seller | string | sellerId |
 
 Sample response data:
 
@@ -639,10 +631,7 @@ Sample response data:
       "price": 0,
       "category": "devices",
       "imgPath": "testPath",
-      "seller": {
-        "_id": "5ac792cb4038d91b8c78c70e"
-        "username": "test1"
-      }
+      "seller": "5ac792cb4038d91b8c78c70e"
     },
     {
       "status": "sold",
@@ -653,10 +642,7 @@ Sample response data:
       "price": 0,
       "category": "devices",
       "imgPath": "testPath",
-      "seller": {
-        "_id": "5ac792cb4038d91b8c78c70e"
-        "username": "test1"
-      }
+      "seller": "5ac792cb4038d91b8c78c70e"
     }
 ]
 ```
