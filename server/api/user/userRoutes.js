@@ -14,6 +14,9 @@ router.route('/')
 .get(controller.get)
 .post(validator.validateUserParam, controller.post);
 
+router.route('/top')
+.get(controller.getTop)
+
 router.route('/:id')
 .get(controller.getOne)
 

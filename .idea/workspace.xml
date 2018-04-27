@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="498c342b-cdb2-45b7-85bb-5df08252a3fa" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/item/itemController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/item/itemController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/notification/notificationController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/notification/notificationController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/order/orderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/order/orderController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/user/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/user/userModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/user/userRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/user/userRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/orderMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/middleware/orderMiddleware.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,20 +20,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="orderController.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/api/order/orderController.js">
+      <file leaf-file-name="userModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/api/user/userModel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="104" column="26" lean-forward="true" selection-start-line="104" selection-start-column="26" selection-end-line="104" selection-end-column="26" />
+            <state relative-caret-position="378">
+              <caret line="122" column="5" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="notificationModel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/notification/notificationModel.js">
+      <file leaf-file-name="userController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/api/user/userController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="47" column="60" lean-forward="true" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
+            <state relative-caret-position="179">
+              <caret line="93" column="30" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="orderMiddleware.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/middleware/orderMiddleware.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="626">
+              <caret line="93" column="27" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="itemController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/api/item/itemController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="20" column="21" selection-start-line="20" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -49,6 +68,7 @@
       <find>toJson</find>
       <find>message</find>
       <find>console.log</find>
+      <find>numberOfRecycledItems</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -67,7 +87,6 @@
         <option value="$PROJECT_DIR$/server/util/seed.js" />
         <option value="$PROJECT_DIR$/server/config/production.js" />
         <option value="$PROJECT_DIR$/procfile" />
-        <option value="$PROJECT_DIR$/server/api/user/userRoutes.js" />
         <option value="$PROJECT_DIR$/server/api/photo/photoController.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/server/config/testing.js" />
@@ -86,20 +105,21 @@
         <option value="$PROJECT_DIR$/server/api/notification/notificationModel.js" />
         <option value="$PROJECT_DIR$/server/config/config.js" />
         <option value="$PROJECT_DIR$/server/api/payment/paymentRoutes.js" />
-        <option value="$PROJECT_DIR$/server/api/user/userModel.js" />
-        <option value="$PROJECT_DIR$/server/api/user/userController.js" />
         <option value="$PROJECT_DIR$/server/api/payment/paymentController.js" />
         <option value="$PROJECT_DIR$/server/api/api.js" />
         <option value="$PROJECT_DIR$/server/api/voucher/voucherRoutes.js" />
         <option value="$PROJECT_DIR$/server/api/voucher/voucherController.js" />
-        <option value="$PROJECT_DIR$/server/middleware/validation.js" />
-        <option value="$PROJECT_DIR$/server/middleware/orderMiddleware.js" />
         <option value="$PROJECT_DIR$/server/api/order/orderRoutes.js" />
         <option value="$PROJECT_DIR$/server/api/order/orderVoucherModel.js" />
         <option value="$PROJECT_DIR$/server/api/voucher/voucherModel.js" />
         <option value="$PROJECT_DIR$/server/api/item/itemController.js" />
         <option value="$PROJECT_DIR$/server/api/notification/notificationController.js" />
         <option value="$PROJECT_DIR$/server/api/order/orderController.js" />
+        <option value="$PROJECT_DIR$/server/middleware/validation.js" />
+        <option value="$PROJECT_DIR$/server/api/user/userRoutes.js" />
+        <option value="$PROJECT_DIR$/server/api/user/userController.js" />
+        <option value="$PROJECT_DIR$/server/api/user/userModel.js" />
+        <option value="$PROJECT_DIR$/server/middleware/orderMiddleware.js" />
       </list>
     </option>
   </component>
@@ -123,10 +143,10 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-9" />
-    <option name="width" value="975" />
-    <option name="height" value="1039" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -152,6 +172,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,7 +261,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -294,11 +314,12 @@
       <workItem from="1524115675291" duration="6079000" />
       <workItem from="1524301419531" duration="23652000" />
       <workItem from="1524594578758" duration="955000" />
+      <workItem from="1524856542539" duration="4340000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112431000" />
+    <option name="totallyTimeSpent" value="117251000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -313,14 +334,14 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26040977" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26040977" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50185084" side_tool="true" weight="0.6248575" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32905984" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3295325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49814913" visible="true" weight="0.2037037" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49814913" visible="true" weight="0.04985755" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -563,13 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/user/userModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="59" column="14" lean-forward="true" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/api/api.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -577,24 +591,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/user/userRoutes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="43" lean-forward="true" selection-start-column="43" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/api/voucher/voucherController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/middleware/validation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="87" column="3" lean-forward="true" selection-start-line="87" selection-start-column="3" selection-end-line="87" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -619,20 +619,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/user/userController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="28" selection-start-line="28" selection-end-line="28" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/middleware/orderMiddleware.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="91" column="12" lean-forward="true" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/api/order/orderVoucherModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -640,24 +626,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/item/itemModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="38" column="6" selection-start-line="38" selection-start-column="2" selection-end-line="38" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/api/voucher/voucherModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/item/itemController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -686,6 +658,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="104" column="26" lean-forward="true" selection-start-line="104" selection-start-column="26" selection-end-line="104" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/item/itemModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="34" selection-start-line="34" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/middleware/validation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="49" column="71" selection-start-line="49" selection-start-column="71" selection-end-line="49" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/user/userRoutes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/item/itemController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="20" column="21" selection-start-line="20" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/user/userController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="93" column="30" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/user/userModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="122" column="5" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/middleware/orderMiddleware.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="93" column="27" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
         </state>
       </provider>
     </entry>

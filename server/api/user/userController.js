@@ -56,6 +56,10 @@ exports.updateMe = (req, res, next) => {
 
   if (req.body.point) {
     next(error.badRequestError("User cannot update point"));
+  } else if (req.body.badge) {
+    next(error.badRequestError("User cannot update badge"));
+  } else if (req.body.numberOfRecycledItems) {
+    next(error.badRequestError("User cannot update number of recycled items"));
   } else {
     _.merge(user, update);
 
@@ -81,6 +85,20 @@ exports.updateMe = (req, res, next) => {
     });
   }
 };
+
+exports.getTop = (req, res, next) => {
+  const limit = req.body.limit;
+  User.find({})
+  .select('-password -email -phoneNumber')
+  .limit(limit)
+  .sort({numberOfRecycledItems: -1})
+  .exec()
+  .then((users) => {
+    res.json(responseHandler.successResponse(users.map((user) => { return user})));
+  }, (err) => {
+    next(error.internalServerError());
+  });
+}
 
 exports.post = (req, res, next) => {
   const newUser = req.body;

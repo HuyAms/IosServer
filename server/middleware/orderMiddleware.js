@@ -61,6 +61,8 @@ exports.processSellerDeal = (req, res, next) => {
       next(error.notFoundError('Cannot find seller with that id'));
     } else {
       seller.point += price;
+      seller.numberOfRecycledItems += 1;
+      seller.badge = seller.getBadge(seller.numberOfRecycledItems)
 
       seller.save((err, saved) => {
         if (err) {
@@ -90,7 +92,6 @@ exports.processBuyerDeal = (req, res, next) => {
      next(error.notFoundError('Cannot find buyer with that id'));
     } else {
       buyer.point -= price;
-
       buyer.save((err, saved) => {
         if (err) {
          next(err);

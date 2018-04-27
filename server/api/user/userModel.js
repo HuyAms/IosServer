@@ -49,6 +49,28 @@ const UserSchema = new Schema({
     required: true,
     min: 0,
     default: 0
+  },
+
+  badge: {
+    type: String,
+    required: true,
+    enum: [
+      'Mercury',
+      'Mars',
+      'Venus',
+      'Earth',
+      'Neptune',
+      'Uranus',
+      'Saturn',
+      'Jupiter'],
+    default: 'Mercury'
+  },
+
+  numberOfRecycledItems: {
+    type: Number,
+    required: true,
+    min: 0,
+    default: 0
   }
 
 });
@@ -80,6 +102,26 @@ UserSchema.methods = {
       return bcrypt.hashSync(plainTextPword, salt);
     }
   },
+
+  getBadge: function(numberOfRecycledItems) {
+    if (numberOfRecycledItems >= 0 && numberOfRecycledItems < 3) {
+      return 'Mercury'
+    } else if (numberOfRecycledItems >= 3 && numberOfRecycledItems < 5) {
+      return 'Mars'
+    } else if (numberOfRecycledItems >= 5 && numberOfRecycledItems < 10) {
+      return 'Venus'
+    } else if (numberOfRecycledItems >= 10 && numberOfRecycledItems < 15) {
+      return 'Earth'
+    } else if (numberOfRecycledItems >= 15 && numberOfRecycledItems < 20) {
+      return 'Neptune'
+    } else if (numberOfRecycledItems >= 20 && numberOfRecycledItems < 30) {
+      return 'Uranus'
+    } else if (numberOfRecycledItems >= 30 && numberOfRecycledItems < 50) {
+      return 'Saturn'
+    } else {
+      return 'Jupiter'
+    }
+  }
 };
 
 module.exports = mongoose.model('user', UserSchema);
