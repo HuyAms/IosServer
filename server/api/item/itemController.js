@@ -4,7 +4,7 @@ const error = require('../../util/error');
 const responseHandler = require('../../util/responseHandler');
 
 exports.params = (req, res, next, id) => {
-  Item.findById(id).populate('seller', '_id username avatarPath').exec().then((item) => {
+  Item.findById(id).populate('seller', '_id username avatarPath badge numberOfRecycledItems').exec().then((item) => {
     if (!item) {
       next(error.notFoundError('Cannot find item with that id', 1));
     } else {
