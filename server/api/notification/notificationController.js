@@ -5,7 +5,7 @@ const responseHandler = require('../../util/responseHandler');
 
 exports.params = (req, res, next, id) => {
   Notification.findById(id)
-  .populate('notiBody', '_id username phoneNumber email badge numberOfRecycledItems')
+  .populate('notiBody', '_id username phoneNumber email badge numberOfRecycledItems avatarPath')
   .populate('item', '_id itemName imgPath')
   .exec().then((notification) => {
     if (!notification) {
@@ -24,7 +24,7 @@ exports.get = (req, res, next) => {
   Notification.find({user: userId})
   .sort({time: -1})
   .select('-user')
-  .populate('notiBody', '_id username phoneNumber email badge numberOfRecycledItems')
+  .populate('notiBody', '_id username phoneNumber email badge numberOfRecycledItems avatarPath')
   .populate('item', '_id itemName description price category status time seller imgPath')
   .exec()
   .then((notifications) => {
