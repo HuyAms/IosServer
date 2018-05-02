@@ -8,5 +8,6 @@ router.use('/centers', require('./center/centerRoutes'));
 router.use('/notifications', require('./notification/notificationRoutes'));
 router.use('/payments', require('./payment/paymentRoutes'));
 router.use('/vouchers', require('./voucher/voucherRoutes'));
+router.use('/songs', require('./songs/songsRouters'));
 
 module.exports = router;

@@ -1,0 +1,63 @@
+[
+  {
+    "id":"1",
+    "name":"Joanne",
+    "numberOfSongs": 14,
+    "albumImgUrl":"http://www.thesassologist.com/wp-content/uploads/2016/10/Lady-Gaga-Joanne.png"
+  },
+  {
+    "id":"2",
+    "name":"Artpop",
+    "numberOfSongs": 3,
+    "albumImgUrl":"https://orig00.deviantart.net/6ed1/f/2014/354/2/5/____lady_gaga___artpop_by_smilerizm-d850twd.jpg"
+  },
+  {
+    "id":"3",
+    "name":"The Fame",
+    "numberOfSongs": 14,
+    "albumImgUrl":"https://pre00.deviantart.net/af26/th/pre/i/2011/215/1/b/lady_gaga_the_fame_1_by_sethvennvampire-d446zp7.jpg"
+  },
+  {
+    "id":"4",
+    "name":"The Fame Monster",
+    "numberOfSongs": 24,
+    "albumImgUrl":"https://is4-ssl.mzstatic.com/image/thumb/Music5/v4/43/61/7b/43617bb9-d241-1cf1-87dc-32a5cf7e0928/UMG_cvrart_00602537628261_01_RGB72_1500x1500_09UMGIM40719.jpg/268x0w.jpg"
+  },
+  {
+    "id":"5",
+    "name":"Revival",
+    "numberOfSongs": 19,
+    "albumImgUrl":"https://upload.wikimedia.org/wikipedia/en/thumb/8/86/Revival_by_Eminem_cover.jpg/220px-Revival_by_Eminem_cover.jpg"
+  },
+  {
+    "id":"6",
+    "name":"Recovery",
+    "numberOfSongs": 16,
+    "albumImgUrl":"https://upload.wikimedia.org/wikipedia/en/6/60/Recovery_Album_Cover.jpg"
+  },
+  {
+    "id":"7",
+    "name":"Relapse",
+    "numberOfSongs": 20,
+    "albumImgUrl":"https://shadyrecords.com/wp-content/uploads/2013/01/eminem-relapse-refill-high-resolution.jpg"
+  },
+  {
+    "id":"8",
+    "name":"Thriller",
+    "numberOfSongs": 9,
+    "albumImgUrl":"https://www.magneticmag.com/.image/t_share/MTM0NTgxNTEwMzg3ODMzMzEw/thrillerjpg.jpg"
+  },
+  {
+    "id":"9",
+    "name":"Bad",
+    "numberOfSongs": 11,
+    "albumImgUrl":"https://www.officialmerchandise.com/assets/products/57586/large/michael-jackson-bad-album-mini-poster-pam31934.jpg"
+  },
+  {
+    "id":"10",
+    "name":"Dangerous",
+    "numberOfSongs": 14,
+    "albumImgUrl":"https://images-na.ssl-images-amazon.com/images/I/61a4S4OE3XL._SY355_.jpg"
+  }
+]
+
